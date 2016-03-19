@@ -1,0 +1,52 @@
+@charset "UTF-8";
+.list{
+    float: left;
+    border: 1px solid #dfdfdf;
+    border-bottom: 0;
+}
+.list_top{
+    background: url("../image/dhbj.png") repeat-x;
+    width: 968px;
+    height: 35px;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 14px;
+    line-height: 35px;
+    padding-left: 20px;
+}
+.list_n ul{
+    float: left;
+}
+.list_n li{
+    float: left;
+    clear: both;
+}
+.list_n a:link, .list_n a:visited{
+    display: block;
+    padding: 10px;
+    height: 100px;
+    background: #fff;
+    color: #333;
+    border-bottom: 1px solid #dfdfdf;
+}
+.list_n a:hover, .list_n a:active{
+    background: #dfdfdf;
+}
+.list_n h1{
+    display: block;
+    float: left;
+    color: #10AEFF;
+}
+.list_n span{
+    display: block;
+    float:right;
+    margin-right: 20px;
+    color: #999;
+    line-height: 32px;
+    font-size: 14px;
+}
+.list_n p{
+    display: block;
+    float: left;
+    color: #999;
+    font-size: 13px;
+}

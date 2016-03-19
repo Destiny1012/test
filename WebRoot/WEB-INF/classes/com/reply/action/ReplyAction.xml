@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "struts-2.1.dtd" >
+<struts>
+	<package name="Reply" namespace="/reply" extends="json-default">
+		<action name="*" class="com.reply.action.ReplyAction" method="{1}">
+			<result name="save" type="json"></result>
+			<result name="delete" type="json"></result>
+			<result name="get" type="json"></result>
+			<result name="getAll" type="json"></result>
+		</action>
+	</package>
+</struts>

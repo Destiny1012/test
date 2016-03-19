@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="information" namespace="/information" extends="json-default">
+		<action name="*" class="com.information.action.InformationAction" method="{1}">
+			<result name="save" type="json"></result>
+			<result name="delete" type="json">success</result>
+			<result name="update" type="json">success</result>
+			<result name="get" type="json">success</result>
+			<result name="getAll" type="json">WEB-INF/jsp/list.jsp</result>
+		</action>
+	</package>
+</struts>

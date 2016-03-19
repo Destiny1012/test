@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="admin" namespace="/admin" extends="json-default">
+		<action name="*" class="com.admin.action.AdminAction" method="{1}">
+			<result name="update" type="json"></result>
+			<result name="get" type="json"></result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.information.domain.Information" table="informations">
+		<id name="id" access="field">
+			<column name="id" precision="22" scale="0" />
+			<generator class="identity" />
+		</id>
+		<property name="bt" type="java.lang.String">
+			<column name="bt" length="100">
+				<comment>标题</comment>
+			</column>
+		</property>
+		<property name="gsd" type="java.lang.String">
+			<column name="gsd" length="10">
+				<comment>归属地</comment>
+			</column>
+		</property>
+		<property name="hd" type="java.lang.String">
+			<column name="hd" length="10">
+				<comment>号段</comment>
+			</column>
+		</property>
+		<property name="ksl" type="java.lang.String">
+			<column name="ksl" length="10">
+				<comment>卡数量</comment>
+			</column>
+		</property>
+		<property name="jqsl" type="java.lang.String">
+			<column name="jqsl" length="10">
+				<comment>机器数量</comment>
+			</column>
+		</property>
+		<property name="gzsj" type="java.lang.String">
+			<column name="gzsj" length="40">
+				<comment>工作时间</comment>
+			</column>
+		</property>
+		<property name="fbsj" type="java.lang.String">
+			<column name="fbsj" length="20">
+				<comment>发布时间</comment>
+			</column>
+		</property>
+		<property name="nr" type="java.lang.String">
+			<column name="nr" length="500">
+				<comment>内容</comment>
+			</column>
+		</property>
+		<property name="zt" type="java.lang.String">
+			<column name="zt" length="10">
+				<comment>状态</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,76 @@
+@charset "UTF-8";
+.register{
+    float: left;
+    border: 1px solid #dfdfdf;
+}
+.register_top{
+    background: url("../image/dhbj.png") repeat-x;
+    width: 968px;
+    height: 35px;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 14px;
+    line-height: 35px;
+    padding-left: 10px;
+}
+.register_left{
+    margin-top: 10px;
+    padding: 10px;
+    width: 700px;
+    border-right: 1px solid #dfdfdf;
+}
+.nav_top{
+    margin-top: 10px;
+    padding-left: 110px;
+    height: 30px;
+    border-bottom: 1px solid #dfdfdf;
+}
+.nav_in{
+    width: 120px;
+    height: 29px;
+    line-height: 31px;
+    text-align: center;
+    color: #09f;
+    border: 1px solid #dfdfdf;
+    border-bottom: 1px solid #fff;
+}
+.nav_content{
+    width: 700px;
+    font-size: 14px;
+}
+.nav_content form{
+    margin-left: 20px;
+    padding-bottom: 20px;
+}
+.nav_content li{
+    position: relative;
+    margin-top: 15px;
+}
+.nav_content label{
+    padding-right: 5px;
+    width: 127px;
+    height: 28px;
+    line-height: 28px;
+    text-align: right;
+    color: #666;
+    display: inline-block;
+}
+.nav_content input{
+    padding-left: 5px;
+    width: 233px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    color: #666;
+    border: 1px solid #c5ced7;
+    box-shadow: 0 0 5px #dfdfdf inset;
+}
+.register_right{
+    margin-top: 30px;
+    width: 230px;
+}
+.register_right ul{
+    margin: 20px;
+}
+.register_right li{
+    margin: 10px 0;
+}

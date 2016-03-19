@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.reply.domain.Reply" table="replys">
+		<id name="id">
+			<column name="id" precision="22" scale="0" />
+			<generator class="identity" />
+		</id>
+		<property name="content" type="java.lang.String">
+			<column name="content" length="300">
+				<comment>内容</comment>
+			</column>
+		</property>
+		<property name="time" type="java.lang.String">
+			<column name="time" length="40">
+				<comment>时间</comment>
+			</column>
+		</property>
+		<property name="visibility" type="jave.lang.String">
+			<column name="visibility" length="10">
+				<comment>可见性</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>
