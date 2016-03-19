@@ -92,26 +92,24 @@
 	<div class="center">
 		<div class="release">
 			<form action="information/save">
-				<div>
-					<h1>标题：</h1><input class="title" type="text" name="bt">
+				<div class="title">
+					<h1>标题：</h1><input type="text" name="bt">
 				</div>
-				<div>
-					<span>归属地：</span><input class="small" type="text" placeholder="请输入“省份－城市”" name="gsd">
+				<div class="small">
+					<span>归属地：</span><input type="text" placeholder="请输入“省份－城市”" name="gsd">
+					<span>号段：</span><input type="text" placeholder="移动／联通／170" name="hd">
 				</div>
-				<div>
-					<span>号段：</span><input class="small" type="text" placeholder="移动／联通／170" name="hd">
+				<div class="small">
+					<span>卡数量：</span><input type="text" name="ksl">
+					<span>机器数量：</span><input type="text" name="jqsl">
 				</div>
-				<div>
-					<span>卡数量：</span><input class="small" type="text" name="ksl">
-				</div>
-				<div>
-					<span>机器数量：</span><input class="small" type="text" name="jqsl">
-				</div>
-				<div>
-					<span>工作时间：</span><input class="small" type="text" name="gzsj">
-				</div>
-				<div>
-					<span>内容：</span><input type="text" name="nr">
+				<div class="big">
+					<span class="left">内容：</span>
+					<div class="right">
+						<span>工作时间：</span><input type="text" name="gzsj">
+					</div>
+					<br>
+					<textarea name="nr" rows="10" cols="30" wrap="hard"></textarea>
 				</div>
 			</form>
 		</div>
