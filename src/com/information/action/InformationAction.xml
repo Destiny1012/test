@@ -17,6 +17,7 @@
 			<result name="infoOrd">/WEB-INF/jsp/information-order.jsp</result>
 			<result name="infoHan">/WEB-INF/jsp/information-handled.jsp</result>
 			<result name="infoUnh">/WEB-INF/jsp/information-unhandled.jsp</result>
+			<result name="infoAdmin">/admin-order.jsp</result>
 		</action>
 	</package>
 </struts>

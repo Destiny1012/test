@@ -277,6 +277,34 @@ public class InformationAction extends ActionSupport {
 		list = informationService.getList(currentPage, pageSize);
 		return "infoUnh";
 	}
+	
+	public String infoAdmin() throws Exception {
+		if(currentPage == 0){
+			currentPage = 1;
+		}
+		totalSize = informationService.getCount();
+		int mod = totalSize % pageSize;
+		if(mod == 0){
+			totalPage = totalSize / pageSize;
+		}else{
+			totalPage = totalSize / pageSize + 1;
+		}
+		pageBar = "<nav>";
+		pageBar += "<ul class='list_m'>";
+		pageBar += "<li><a href='information/infoAdmin?currentPage=1'>首页</a></li>";
+		for(int i = 1; i <= totalPage; i++){
+			if(i == currentPage){
+				pageBar += "<li class='active'><a href='information/infoAdmin?currentPage=" + i + "'>" + i + "</a></li>";
+			}else{
+				pageBar += "<li><a href='information/infoAdmin?currentPage=" + i + "'>" + i + "</a></li>";
+			}
+		}
+		pageBar += "<li><a href='information/infoAdmin?currentPage=" + totalPage + "'>尾页</a></li>";
+		pageBar += "</ul>";
+		pageBar += "</nav>";
+		list = informationService.getList(currentPage, pageSize);
+		return "infoAdmin";
+	}
 
 	public long getId() {
 		return id;

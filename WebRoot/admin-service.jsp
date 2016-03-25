@@ -5,13 +5,13 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
 <base href="<%=basePath%>">
 
-<title>admin-service</title>
+<title>admin-login</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -20,7 +20,7 @@
 <meta http-equiv="description" content="This is my page">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="resource/css/admin.css">
+<link rel="stylesheet" type="text/css" href="resource/css/login.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 
 </head>
@@ -29,14 +29,40 @@
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				您好, <a href="">管理员</a> <a href="#"
-					style="color: #333;">退出</a>
+				欢迎来到28卡 <span> <a href="admin-login.jsp">请登录</a> - <a
+					href="user/toRegister">免费注册</a> </span>
 			</div>
+			<div class="right top_obtain top_index">
+				<div class="nav_text">
+					<a href="#">订单查询</a>
+				</div>
+			</div>
+			<span class="right top1">|</span>
+			<div class="right top_obtain top_index">
+				<div class="nav_text">
+					<a href="#">客服中心</a>
+				</div>
+			</div>
+			<span class="right top1">|</span>
+			<div class="right top_obtain top_index">
+				<div class="nav_text">
+					<a href="#">我是卖家</a>
+				</div>
+			</div>
+			<span class="right top1">|</span>
+			<div class="right top_obtain top_index">
+				<div class="nav_text">
+					<a href="#">我的订单</a>
+				</div>
+			</div>
+			<span class="right top1">|</span> <span class="right top2"> <a
+				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
+				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
 	<div class="center logo">
 		<div class="left">
-			<a href="index.jsp"> <img src="resource/image/logo.gif"> </a>
+			<a href="#"> <img src="resource/image/logo.gif"> </a>
 		</div>
 		<div class="right search">
 			<div class="search_box">
@@ -49,49 +75,39 @@
 			</div>
 		</div>
 	</div>
-	<div style="border: 1px solid #dfdfdf;clear: both;"></div>
-	<div class="center">
-		<div class="admin_left left">
+	<div class="navigation">
+		<div class="center part">
 			<ul>
-				<li><h2>管理中心</h2></li>
-				<li><a href="" class="check">用户信息</a></li>
-				<li><a href="">发布信息</a></li>
+				<li><a class="menu_on" href="index.jsp">首页</a></li>
+				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
+					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
+				<li id="part_img"><a href="user/toList"> <img
+						src="resource/image/search.png"> </a></li>
 			</ul>
 		</div>
-		<div class="admin_right right">
-			<div class="admin">
-				<div class="admin_title">*修改信息</div>
-				<div class="admin_top">
-					<span>用户名</span>
-				</div>
-				<div class="admin_list">
-					<table  rules="all">
-						<thead>
-							<tr>
-								<td width="5%">ID</td>
-								<td width="10%">用户名</td>
-								<td width="35%">邮箱</td>
-								<td width="25%">电话</td>
-								<td width="25%">QQ</td>
-							</tr>
-						</thead>
-						<tbody>
-							<s:iterator value="list" var="information" status="st">
-								<tr>
-									<td>
-										<s:property value="#information.bt"/>
-									</td>
-									<td>
-										<s:property value="#information.fbsj"/>
-									</td>
-								</tr>
-							</s:iterator>
-						</tbody>
-					</table>
-					<div>${pageBar}</div>
-				</div>
-			</div>
+	</div>
+	<div class="center">
+		<div class="left login_left">
+			<img src="resource/image/0.png">
 		</div>
+		<form class="left login_right" action="admin/success">
+			<ul>
+				<li>
+					<h1>选择你想要处理的业务</h1>
+				</li>
+				<li></li>
+				<li>
+					<a href="user/admin"><h2>查看全部用户</h2></a>
+				</li>
+				<li></li>
+				<li>
+					<a href="information/infoAdmin"><h2>查看全部信息</h2></a>
+				</li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</form>
 	</div>
 	<div class="foot_track">
 		<div class="center">

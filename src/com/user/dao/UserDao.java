@@ -58,6 +58,15 @@ public class UserDao implements IUserDao {
 	public List<User> findByEmailAndPassword(String email, String password) {
 		return getSession().createQuery("from User where email=:email and password=:password").setString("email", email).setString("password", password).list();
 	}
+	
+	public int queryCount() {
+		return Integer.parseInt(getSession().createSQLQuery("select count(*) from users").uniqueResult().toString());
+	}
+	
+	public List<User> queryUser(int currentPage, int pageSize) {
+		int startRow = (currentPage - 1) * pageSize;
+		return getSession().createQuery("from User").setFirstResult(startRow).setMaxResults(pageSize).list();
+	}
 	 
 	protected Session getSession() {
 		return sessionFactory.getCurrentSession();

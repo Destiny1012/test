@@ -49,7 +49,7 @@
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="user/toLogin">请登录</a> - <a
+				欢迎来到28卡 <span> <a href="login.jsp">请登录</a> - <a
 					href="user/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">

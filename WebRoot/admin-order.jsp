@@ -1,19 +1,17 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
-	contentType="text/html; UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML>
 <html>
 <head>
 <base href="<%=basePath%>">
 
-<title>list</title>
+<title>admin-order</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -22,10 +20,8 @@
 <meta http-equiv="description" content="This is my page">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="resource/css/list.css">
+<link rel="stylesheet" type="text/css" href="resource/css/admin.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-<!-- <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script type="text/javascript" src="resource/js/list.js"></script> -->
 
 </head>
 
@@ -33,35 +29,8 @@
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="login.jsp">请登录</a> - <a
-					href="user/toRegister">免费注册</a> </span>
+				您好, <a href="">管理员</a> <a href="#" style="color: #333;">退出</a>
 			</div>
-			<div class="right top_obtain top_index">
-				<div class="nav_text">
-					<a href="#">订单查询</a>
-				</div>
-			</div>
-			<span class="right top1">|</span>
-			<div class="right top_obtain top_index">
-				<div class="nav_text">
-					<a href="#">客服中心</a>
-				</div>
-			</div>
-			<span class="right top1">|</span>
-			<div class="right top_obtain top_index">
-				<div class="nav_text">
-					<a href="#">我是卖家</a>
-				</div>
-			</div>
-			<span class="right top1">|</span>
-			<div class="right top_obtain top_index">
-				<div class="nav_text">
-					<a href="#">我的订单</a>
-				</div>
-			</div>
-			<span class="right top1">|</span> <span class="right top2"> <a
-				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
-				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
 	<div class="center logo">
@@ -79,39 +48,72 @@
 			</div>
 		</div>
 	</div>
-	<div class="navigation">
-		<div class="center part">
+	<div style="border: 1px solid #dfdfdf;clear: both;"></div>
+	<div class="center">
+		<div class="admin_left left">
 			<ul>
-				<li><a href="index.jsp">首页</a>
-				</li>
-				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
-					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a>
-				</li>
-				<li id="part_img"><a href="user/toList"> <img
-						src="resource/image/search.png"> </a>
-				</li>
+				<li><h2>管理中心</h2></li>
+				<li><a href="user/admin">用户信息</a></li>
+				<li><a href="information/infoAdmin" class="check">发布信息</a></li>
 			</ul>
 		</div>
-	</div>
-	<div class="center">
-		<div class="list">
-			<div class="list_top">
-				<span>买卖信息列表</span>
-			</div>
-			<div>
-				<ul class="list_n">
-					<s:iterator value="list" var="information" status="st">
-						<li><a href="#">
-								<h1>
-									<s:property value="#information.bt" />
-								</h1> <span><s:property value="#information.fbsj" /> </span>
-								<p>
-									<s:property value="#information.nr" />
-								</p> </a>
-						</li>
-					</s:iterator>
-				</ul>
-				<div>${pageBar}</div>
+		<div class="admin_right right">
+			<div class="admin">
+				<div class="admin_title">*发布信息</div>
+				<div class="admin_top">
+					<span>管理员</span>
+				</div>
+				<div class="admin_list">
+					<table rules="all">
+						<thead>
+							<tr>
+								<td width="45%">标题</td>
+								<td width="10%">用户名</td>
+								<td width="5%">归属地</td>
+								<td width="5%">号段</td>
+								<td width="5%">号卡数量</td>
+								<td width="5%">机器数量</td>
+								<td width="10">工作时间</td>
+								<td width="10">发布时间</td>
+								<td width="5%">状态</td>
+							</tr>
+						</thead>
+						<tbody>
+							<s:iterator value="list" var="information" status="st">
+								<tr>
+									<td>
+										<s:property value="#information.bt" />
+									</td>
+									<td>
+										<s:property value="#information.belongUser" />
+									</td>
+									<td>
+										<s:property value="#information.gsd" />
+									</td>
+									<td>
+										<s:property value="#information.hd" />
+									</td>
+									<td>
+										<s:property value="#information.ksl" />
+									</td>
+									<td>
+										<s:property value="#information.jqsl" />
+									</td>
+									<td>
+										<s:property value="#information.gzsj" />
+									</td>
+									<td>
+										<s:property value="#information.fbsj" />
+									</td>
+									<td>
+										<s:property value="#information.zt" />
+									</td>
+								</tr>
+							</s:iterator>
+						</tbody>
+					</table>
+					<div>${pageBar}</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -21,5 +21,9 @@ public interface IUserDao {
 	public List<User> findAll();
 	
 	public List<User> findByEmailAndPassword(String email, String password);
+	
+	public int queryCount();
+	
+	public List<User> queryUser(int currentPage, int pageSize);
 
 }

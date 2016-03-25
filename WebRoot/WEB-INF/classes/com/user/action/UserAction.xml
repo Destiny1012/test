@@ -12,23 +12,14 @@
 			<result name="execute" type="json"></result>
 			<result name="getAll" type="json"></result>
 			<result name="toRegister">/WEB-INF/jsp/register.jsp</result>
-			<result name="toLogin">/WEB-INF/jsp/login.jsp</result>
 			<result name="toDetail">/WEB-INF/jsp/detail.jsp</result>
 			<result name="toRelease">/WEB-INF/jsp/release.jsp</result>
 			<result name="toInforPer">/WEB-INF/jsp/information-person.jsp</result>
 			<result name="toInforUp">/WEB-INF/jsp/information-update.jsp</result>
 			<result name="toInforPas">/WEB-INF/jsp/information-password.jsp</result>
 			<result name="toInforPass">/WEB-INF/jsp/information-password-.jsp</result>
-			<result name="toInforOrd">/WEB-INF/jsp/information-order.jsp</result>
-			<result name="toInforUnh">/WEB-INF/jsp/information-unhandled.jsp</result>
-			<result name="toInforHan">/WEB-INF/jsp/information-handled.jsp</result>
-			<result name="toInforAll">/WEB-INF/jsp/information-all.jsp</result>
-			<result name="toInforRel">/WEB-INF/jsp/information-release.jsp</result>
-			<result name="toInforAud">/WEB-INF/jsp/information-audit.jsp</result>
-		</action>
-		<action name="login" class="com.user.action.UserAction" method="login">
-			<result name="input">/login.jsp</result>
-			<result name="success" type="redirect">/WEB-INF/jsp/information-person.jsp</result>
+			<result name="admin">/admin-manage.jsp</result>
+			<result name="success">/WEB-INF/jsp/list.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -11,7 +11,8 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>index</title>
+<title>admin-login</title>
+
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -19,7 +20,7 @@
 <meta http-equiv="description" content="This is my page">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="resource/css/index.css">
+<link rel="stylesheet" type="text/css" href="resource/css/login.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 
 </head>
@@ -28,7 +29,7 @@
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="login.jsp">请登录</a> - <a
+				欢迎来到28卡 <span> <a href="admin-login.jsp">请登录</a> - <a
 					href="user/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">
@@ -78,86 +79,40 @@
 		<div class="center part">
 			<ul>
 				<li><a class="menu_on" href="index.jsp">首页</a></li>
-				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a href="#">联系我们</a>
-					<a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
-				<li id="part_img"><a href="information/list"> <img src="resource/image/search.png">
-				</a></li>
+				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
+					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
+				<li id="part_img"><a href="user/toList"> <img
+						src="resource/image/search.png"> </a></li>
 			</ul>
 		</div>
 	</div>
 	<div class="center">
-		<div class="ad">
-			<div class="focus">
-				<img src="resource/image/focus.jpeg">
-			</div>
-			<div class="news">
-				<div class="news_left">最新动态</div>
-				<div class="news_right">
-					<span class="ico"></span>
-					<div class="news_c">
-						<ul>
-							<li><a href="#">为什么选择我们28ka？:</a> <span>资金何来保障？用户价值何以体现？</span>
-							</li>
-							<li><a href="#">28卡全新发卡体验:</a> <span>带给您的不止是服务</span></li>
-						</ul>
+		<div class="left login_left">
+			<img src="resource/image/0.png">
+		</div>
+		<form class="left login_right" action="admin/success">
+			<ul>
+				<li>
+					<h1>管理员登陆</h1>
+				</li>
+				<li>Admin</li>
+				<li><input type="text" name="name" placeholder="请输入Admin帐号">
+				</li>
+				<li>Password</li>
+				<li><input type="password" name="password" placeholder="请输入密码">
+				</li>
+				<li>验证码</li>
+				<li><input type="text" placeholder="请输入验证码"
+					style="width: 160px;"> <img src="#"
+					style="width: 70px;height: 23px;vertical-align: middle;">
+				</li>
+				<li><input id="login_btn" type="submit" value="">
+					<div class="right" style="line-height: 32px;">
+						还没有账号？ <a href="register.html" style="color: #36c;">立即注册</a>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="list_btn">
-			<div class="title_btn">
-				<a class="a1" href="user/toRegister"></a> <a class="a2" href="user/toLogin"></a> <a
-					class="a3" href="#"></a>
-			</div>
-			<form class="form_btn">
-				<ul>
-					<li><input type="text" name="email" placeholder="请输入用户名/Email"></li>
-					<li><input type="password" name="password" placeholder="请输入登陆密码"></li>
-					<li><input type="text" placeholder="请输入验证码" style="width: 160px;">
-						<img src="#"
-						style="vertical-align: middle; width: 70px; height: 23px;">
-					</li>
-					<li><input type="image" src="resource/image/login_1.png"
-						style="float: left; margin-top: 5px; width: 120px; height: 37px; box-shadow: none; border: none;">
-						<a href="#"
-						style="float:left; margin-left: 5px; color: #444; line-height: 45px;">忘记密码</a>
-					</li>
-				</ul>
-			</form>
-			<div class="footer_btn">
-				<ul>
-					<li><i class="safe"></i> <a href="#">交易安全</a> <br> 专业平台保障
-						安全无忧</li>
-					<li style="margin-top: 0;"><i class="release"></i> <a href="#">自动发卡</a>
-						<br> 极速发货体验 即买即发</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="center">
-		<div class="content">
-			<div class="content_tab">
-				<img src="resource/image/tab.jpeg" style="width: 676px; height: 267px;">
-			</div>
-			<div class="kill">
-				<h3 class="cent">站内动态</h3>
-				<ul>
-					<br>
-					<li> •   <span>2016-02-21</span> <a href="#"> 启迅科技祝您新春快乐，
-					</a></li>
-					<li> •   <span>2015-09-27</span> <a href="#"> 关于建设银行新一代系统
-					</a></li>
-					<li> •   <span>2015-09-17</span> <a href="#"
-						style="color: red;"> 紧急通知公告 </a></li>
-					<li> •   <span>2015-06-28</span> <a href="#"
-						style="color: blue;"> 28卡网站守则必读 </a></li>
-					<li> •   <span>2015-06-28</span> <a href="#"
-						style="color: red;"> 28发卡禁止上架销售的商 </a></li>
-					<li> •   <span>2015-06-27</span> <a href="#"
-						style="color: red;"> 新增支付宝以及微信支付 </a></li>
-				</ul>
-			</div>
-		</div>
+				</li>
+			</ul>
+		</form>
 	</div>
 	<div class="foot_track">
 		<div class="center">
@@ -171,8 +126,8 @@
 	</div>
 	<div class="foot">
 		<div class="center foot_font">
-			<a href="index.jsp" class="hs"> 首 页 </a> | <a href="#" class="hs">  关于我们 </a>
-			| <a href="#" class="hs"> 联系我们 </a> | <a href="#" class="hs">
+			<a href="index.jsp" class="hs"> 首 页 </a> | <a href="#" class="hs">
+				 关于我们 </a> | <a href="#" class="hs"> 联系我们 </a> | <a href="#" class="hs">
 				 免责声明 </a> | <a href="#" class="hs"> 商务合作 </a> | <a href="#" class="hs"> 诚聘英才 </a>
 			| <a href="#" class="hs"> 注册28发卡前必读 </a> | <a href="#" class="hs"> 公司资质 </a><br>
 			Copyright Reserved 2008-2014 © <a href="#" class="hs">www.28ka.com</a>

@@ -21,5 +21,11 @@
 				<comment>可见性</comment>
 			</column>
 		</property>
+		<many-to-one name="user" class="com.user.domain.User" insert="false" update="false" cascade="delete" fetch="join">
+			<column name="belongUser"></column>
+		</many-to-one>
+		<many-to-one name="information" class="com.information.domain.Information" insert="false" update="false" cascade="delete" fetch="join">
+			<column name="belongInformation"></column>
+		</many-to-one>
 	</class>
 </hibernate-mapping>

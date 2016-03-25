@@ -29,7 +29,7 @@
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="user/toLogin">请登录</a> - <a
+				欢迎来到28卡 <span> <a href="login.jsp">请登录</a> - <a
 					href="user/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">
@@ -111,7 +111,7 @@
 								name="password" placeholder="请输入密码">
 							</li>
 							<li><label>确认密码：</label> <input type="password"
-								name="password2" placeholder="请确认密码">
+								placeholder="请确认密码">
 							</li>
 							<li><label>手机：</label> <input type="text" name="tel"
 								placeholder="请输入手机">

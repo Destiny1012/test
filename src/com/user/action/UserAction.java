@@ -26,6 +26,11 @@ public class UserAction extends ActionSupport {
 	private String qq;
 	private String result;
 	private List<User> list;
+	private int pageSize = 10;
+	private int currentPage;
+	private int totalSize;
+	private int totalPage;
+	private String pageBar;
 
 	public String save() throws Exception {
 		User user = new User();
@@ -65,25 +70,12 @@ public class UserAction extends ActionSupport {
 		return "get";
 	}
 
-//	public String execute() throws Exception {
-//		List<User> list = (List<User>) userService.findAll();
-//		User user = new User();
-//		Iterator<User> it = list.iterator();
-//		while (it.hasNext()) {
-//			user = (User) it.next();
-//			if (email.trim().equals(user.getEmail())
-//					&& password.trim().equals(user.getPassword())) {
-//				result = "success";
-//			} else {
-//				result = "fail";
-//			}
-//		}
-//		return "execute";
-//	}
-	
 	public String loginUser() throws Exception {
-		userService.loginUser(email, password);
-		return "loginUser";
+		if(userService.loginUser(email, password) == true){
+			return "success";
+		}else{
+			return "fail";
+		}
 	}
 
 	public String getAll() throws Exception {
@@ -91,8 +83,32 @@ public class UserAction extends ActionSupport {
 		return "getAll";
 	}
 
-	public String toLogin() throws Exception {
-		return "toLogin";
+	public String admin() throws Exception {
+		if(currentPage == 0){
+			currentPage = 1;
+		}
+		totalSize = userService.getCount();
+		int mod = totalSize % pageSize;
+		if(mod == 0){
+			totalPage = totalSize / pageSize;
+		}else{
+			totalPage = totalSize / pageSize + 1;
+		}
+		pageBar = "<nav>";
+		pageBar += "<ul class='list_m'>";
+		pageBar += "<li><a href='user/admin?currentPage=1'>首页 </a></li>";
+		for (int i = 1; i <= totalPage; i++) {
+			if (i == currentPage) {
+				pageBar += " <li class='active'><a href='user/admin?currentPage=" + i + "'>" + i + "</a></li>";
+			} else {
+				pageBar += " <li><a href='user/admin?currentPage=" + i + "'>" + i + "</a></li>";
+			}
+		}
+		pageBar += "<li><a href='user/admin?currentPage=" + totalPage + "'>尾页</a></li>";
+		pageBar += "</ul>";
+		pageBar += "</nav>";
+		list = userService.getList(currentPage, pageSize);
+		return "admin";
 	}
 
 	public String toRegister() throws Exception {
@@ -121,30 +137,6 @@ public class UserAction extends ActionSupport {
 
 	public String toInforPass() throws Exception {
 		return "toInforPass";
-	}
-
-	public String toInforOrd() throws Exception {
-		return "toInforOrd";
-	}
-
-	public String toInforUnh() throws Exception {
-		return "toInforUnh";
-	}
-
-	public String toInforHan() throws Exception {
-		return "toInforHan";
-	}
-
-	public String toInforAll() throws Exception {
-		return "toInforAll";
-	}
-
-	public String toInforRel() throws Exception {
-		return "toInforRel";
-	}
-
-	public String toInforAud() throws Exception {
-		return "toInforAud";
 	}
 
 	public String getEmail() {
@@ -201,6 +193,46 @@ public class UserAction extends ActionSupport {
 
 	public void setList(List<User> list) {
 		this.list = list;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public int getCurrentPage() {
+		return currentPage;
+	}
+
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+
+	public int getTotalSize() {
+		return totalSize;
+	}
+
+	public void setTotalSize(int totalSize) {
+		this.totalSize = totalSize;
+	}
+
+	public int getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+
+	public String getPageBar() {
+		return pageBar;
+	}
+
+	public void setPageBar(String pageBar) {
+		this.pageBar = pageBar;
 	}
 
 }

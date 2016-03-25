@@ -20,4 +20,8 @@ public interface IUserService {
 	
 	public boolean loginUser(String email, String password);
 	
+	public int getCount();
+	
+	public List<User> getList(int currentPage, int pageSize);
+	
 }

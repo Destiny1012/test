@@ -85,4 +85,22 @@ public class UserService implements IUserService {
 			return false;
 		}
 	}
+	
+	public int getCount() {
+		try{
+			return userDao.queryCount();
+		}catch(Exception e){
+			e.printStackTrace();
+			return -1;
+		}
+	}
+	
+	public List<User> getList(int currentPage, int pageSize) {
+		try{
+			return userDao.queryUser(currentPage, pageSize);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
