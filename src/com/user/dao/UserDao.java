@@ -54,6 +54,10 @@ public class UserDao implements IUserDao {
 	public List<User> findAll() {
 		return getSession().createCriteria(User.class).list();
 	}
+	
+	public List<User> findByEmailAndPassword(String email, String password) {
+		return getSession().createQuery("from User where email=:email and password=:password").setString("email", email).setString("password", password).list();
+	}
 	 
 	protected Session getSession() {
 		return sessionFactory.getCurrentSession();

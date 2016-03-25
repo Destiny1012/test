@@ -1,6 +1,5 @@
 package com.user.action;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -66,20 +65,25 @@ public class UserAction extends ActionSupport {
 		return "get";
 	}
 
-	public String execute() throws Exception {
-		List<User> list = (List<User>) userService.findAll();
-		User user = new User();
-		Iterator<User> it = list.iterator();
-		while (it.hasNext()) {
-			user = (User) it.next();
-			if (email.trim().equals(user.getEmail())
-					&& password.trim().equals(user.getPassword())) {
-				result = "success";
-			} else {
-				result = "fail";
-			}
-		}
-		return "execute";
+//	public String execute() throws Exception {
+//		List<User> list = (List<User>) userService.findAll();
+//		User user = new User();
+//		Iterator<User> it = list.iterator();
+//		while (it.hasNext()) {
+//			user = (User) it.next();
+//			if (email.trim().equals(user.getEmail())
+//					&& password.trim().equals(user.getPassword())) {
+//				result = "success";
+//			} else {
+//				result = "fail";
+//			}
+//		}
+//		return "execute";
+//	}
+	
+	public String loginUser() throws Exception {
+		userService.loginUser(email, password);
+		return "loginUser";
 	}
 
 	public String getAll() throws Exception {
@@ -93,10 +97,6 @@ public class UserAction extends ActionSupport {
 
 	public String toRegister() throws Exception {
 		return "toRegister";
-	}
-
-	public String toList() throws Exception {
-		return "toList";
 	}
 
 	public String toDetail() throws Exception {

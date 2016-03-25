@@ -1,5 +1,7 @@
 package com.information.domain;
 
+import com.user.domain.User;
+
 public class Information {
 	
 	private long id;
@@ -12,6 +14,7 @@ public class Information {
 	private String fbsj;
 	private String nr;
 	private String zt;
+	private User user;
 	
 	public long getId() {
 		return id;
@@ -72,6 +75,12 @@ public class Information {
 	}
 	public void setZt(String zt) {
 		this.zt = zt;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }

@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>information-all</title>
+<title>admin-service</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -20,10 +20,8 @@
 <meta http-equiv="description" content="This is my page">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="resource/css/information.css">
+<link rel="stylesheet" type="text/css" href="resource/css/admin.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script type="text/javascript" src="resource/js/easy-list.js"></script>
 
 </head>
 
@@ -31,35 +29,9 @@
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				您好, <a href="information.html">用户名</a> <a href="#"
+				您好, <a href="">管理员</a> <a href="#"
 					style="color: #333;">退出</a>
 			</div>
-			<div class="right top_obtain top_index">
-				<div class="nav_text">
-					<a href="#">订单查询</a>
-				</div>
-			</div>
-			<span class="right top1">|</span>
-			<div class="right top_obtain top_index">
-				<div class="nav_text">
-					<a href="#">客服中心</a>
-				</div>
-			</div>
-			<span class="right top1">|</span>
-			<div class="right top_obtain top_index">
-				<div class="nav_text">
-					<a href="#">我是卖家</a>
-				</div>
-			</div>
-			<span class="right top1">|</span>
-			<div class="right top_obtain top_index">
-				<div class="nav_text">
-					<a href="#">我的订单</a>
-				</div>
-			</div>
-			<span class="right top1">|</span> <span class="right top2"> <a
-				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
-				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
 	<div class="center logo">
@@ -79,39 +51,28 @@
 	</div>
 	<div style="border: 1px solid #dfdfdf;clear: both;"></div>
 	<div class="center">
-		<div class="information_left left">
+		<div class="admin_left left">
 			<ul>
-				<li><h2>个人中心</h2></li>
-				<li><a href="user/toInforPer">基础信息</a></li>
-				<li><a href="user/toInforUp">修改信息</a></li>
-				<li><a href="user/toInforPas">密码修改</a></li>
-			</ul>
-			<ul>
-				<li><h2>我的订单</h2></li>
-				<li><a href="information/infoOrd">全部订单</a></li>
-				<li><a href="information/infoHan">已购买订单</a></li>
-				<li><a href="information/infoUnh">待处理订单</a></li>
-			</ul>
-			<ul>
-				<li>
-					<h2>我的发布</h2></li>
-				<li><a href="information/infoAll" class="check">全部发布</a></li>
-				<li><a href="information/infoRel">已发布订单</a></li>
-				<li><a href="information/infoAud">待审核订单</a></li>
+				<li><h2>管理中心</h2></li>
+				<li><a href="" class="check">用户信息</a></li>
+				<li><a href="">发布信息</a></li>
 			</ul>
 		</div>
-		<div class="information_right right">
-			<div class="information">
-				<div class="information_title">*修改信息</div>
-				<div class="information_top">
+		<div class="admin_right right">
+			<div class="admin">
+				<div class="admin_title">*修改信息</div>
+				<div class="admin_top">
 					<span>用户名</span>
 				</div>
-				<div class="information_list">
-					<table>
+				<div class="admin_list">
+					<table  rules="all">
 						<thead>
 							<tr>
-								<td width="65%">标题</td>
-								<td width="35%">时间</td>
+								<td width="5%">ID</td>
+								<td width="10%">用户名</td>
+								<td width="35%">邮箱</td>
+								<td width="25%">电话</td>
+								<td width="25%">QQ</td>
 							</tr>
 						</thead>
 						<tbody>

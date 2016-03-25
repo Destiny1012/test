@@ -51,5 +51,8 @@
 				<comment>状态</comment>
 			</column>
 		</property>
+		<many-to-one name="user" class="com.user.domain.User" insert="false" update="false" cascade="delete" fetch="join">
+			<column name="user"/>
+		</many-to-one>
 	</class>
 </hibernate-mapping>

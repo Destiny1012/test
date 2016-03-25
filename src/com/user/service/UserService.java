@@ -72,4 +72,17 @@ public class UserService implements IUserService {
 			 return null;
 		 }
 	}
+	
+	public boolean loginUser(String email, String password) {
+		try{
+			if(userDao.findByEmailAndPassword(email, password).size() > 0) {
+				return true;
+			}else{
+				return false;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

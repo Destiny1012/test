@@ -18,4 +18,6 @@ public interface IUserService {
 	
 	public List<User> findAll();
 	
+	public boolean loginUser(String email, String password);
+	
 }

@@ -5,8 +5,8 @@
 <struts>
 	<package name="admin" namespace="/admin" extends="json-default">
 		<action name="*" class="com.admin.action.AdminAction" method="{1}">
-			<result name="update" type="json"></result>
-			<result name="get" type="json"></result>
+			<result name="success">admin-service.jsp</result>
+			<result name="fail">admin-login.jsp</result>
 		</action>
 	</package>
 </struts>

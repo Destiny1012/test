@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.information_left{
+.admin_left{
     margin: 10px;
     margin-left: 0;
     padding: 5px;
@@ -7,36 +7,36 @@
     text-align: center;
     border: 1px solid #dfdfdf;
 }
-.information_left ul{
+.admin_left ul{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.information_left li{
+.admin_left li{
     margin-bottom: 10px;
 }
-.information_left h2{
+.admin_left h2{
     color: #10AEFF;
     border-bottom: 1px solid #dfdfdf;
 }
-.information_left a:link, .information_left a:visited{
+.admin_left a:link, .admin_left a:visited{
     font-size: 16px;
     cursor: pointer;
 }
-.information_left a:hover, .information_left a:active{
+.admin_left a:hover, .admin_left a:active{
 	text-decoration: none;
 	color: #333;
 }
 .check{
 	background: #dfdfdf;
 }
-.information{
+.admin{
     float: right;
     margin: 10px 0;
     width: 806px;
     min-height: 456px;
     border: 1px solid #dfdfdf;
 }
-.information_title{
+.admin_title{
     background: url("../image/dhbj.png") repeat-x;
     width: 786px;
     height: 35px;
@@ -46,14 +46,14 @@
     line-height: 35px;
     padding-left: 20px;
 }
-.information_top{
+.admin_top{
     margin: 10px;
     padding-left: 120px;
     height: 28px;
     font-size: 15px;
     border-bottom: 1px solid #dfdfdf;
 }
-.information_top span{
+.admin_top span{
     display: block;
     width: 100px;
     height: 27px;
@@ -63,53 +63,44 @@
     border: 1px solid #dfdfdf;
     border-bottom: 1px solid #FFFFFF;
 }
-.information_list{
+.admin_list{
     margin: 20px;
     font-size: 14px;
 }
-.information_list li{
+.admin_list li{
     margin: 20px;
 }
-.information_list span{
+.admin_list span{
     display: block;
     padding-right: 5px;
     width: 80px;
     float: left;
     text-align: right;
 }
-.information_list label{
+.admin_list label{
     display: block;
     padding-left: 5px;
 }
-.information_list input{
+.admin_list input{
     height: 20px;
     vertical-align: middle;
 }
-.information table{
+.admin table{
     margin: 20px auto;
-    width: 600px;
+    width: 750px;
     font-size: 16px;
     border: 2px solid #dfdfdf;
 }
-.information thead{
+.admin thead{
     background: #edf3fd;
     border-bottom: 2px solid #dfdfdf;
 }
-.information tr{
+.admin tr{
     border-bottom: 1px solid #dfdfdf;
     height: 25px;
 }
-.information td{
-    padding-left: 20px;
-}
-.msg_con1 span{
-    margin-left: 5px;
-    color: #3d86ea;
-}
-.msg_con1 p{
-    margin: 3px;
-    font-size: 14px;
-    color: #dfdfdf;
+.admin td{
+    padding-left: 5px;
 }
 .list_m {
 	display: inline-block;

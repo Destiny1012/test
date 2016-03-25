@@ -5,6 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -88,16 +89,16 @@
 			</ul>
 			<ul>
 				<li><h2>我的订单</h2></li>
-				<li><a href="user/toInforOrd">全部订单</a></li>
-				<li><a href="user/toInforHan">已购买订单</a></li>
-				<li><a href="user/toInforUnh">待处理订单</a></li>
+				<li><a href="information/infoOrd">全部订单</a></li>
+				<li><a href="information/infoHan">已购买订单</a></li>
+				<li><a href="information/infoUnh">待处理订单</a></li>
 			</ul>
 			<ul>
 				<li>
 					<h2>我的发布</h2></li>
-				<li><a href="user/toInforAll">全部发布</a></li>
-				<li><a href="user/toInforRel">已发布订单</a></li>
-				<li><a href="user/toInforAud" class="check">待审核订单</a></li>
+				<li><a href="information/infoAll">全部发布</a></li>
+				<li><a href="information/infoRel">已发布订单</a></li>
+				<li><a href="information/infoAud" class="check">待审核订单</a></li>
 			</ul>
 		</div>
 		<div class="information_right right">
@@ -114,13 +115,20 @@
 								<td width="35%">时间</td>
 							</tr>
 						</thead>
-						<tbody id="easy_list">
-							<tr>
-								<td>123</td>
-								<td>123</td>
-							</tr>
+						<tbody>
+							<s:iterator value="list" var="information" status="st">
+								<tr>
+									<td>
+										<s:property value="#information.bt"/>
+									</td>
+									<td>
+										<s:property value="#information.fbsj"/>
+									</td>
+								</tr>
+							</s:iterator>
 						</tbody>
 					</table>
+					<div>${pageBar}</div>
 				</div>
 			</div>
 		</div>

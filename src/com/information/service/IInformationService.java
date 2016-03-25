@@ -15,5 +15,9 @@ public interface IInformationService {
 	public Information get(long id);
 	
 	public List<Information> getAll();
+	
+	public int getCount();
+	
+	public List<Information> getList(int currentPage, int pageSize);
 
 }

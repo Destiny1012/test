@@ -9,7 +9,14 @@
 			<result name="delete" type="json">success</result>
 			<result name="update" type="json">success</result>
 			<result name="get" type="json">success</result>
-			<result name="getAll" type="json">WEB-INF/jsp/list.jsp</result>
+			<result name="getAll" type="json"></result>
+			<result name="list">/WEB-INF/jsp/list.jsp</result>
+			<result name="infoAll">/WEB-INF/jsp/information-all.jsp</result>
+			<result name="infoAud">/WEB-INF/jsp/information-audit.jsp</result>
+			<result name="infoRel">/WEB-INF/jsp/information-release.jsp</result>
+			<result name="infoOrd">/WEB-INF/jsp/information-order.jsp</result>
+			<result name="infoHan">/WEB-INF/jsp/information-handled.jsp</result>
+			<result name="infoUnh">/WEB-INF/jsp/information-unhandled.jsp</result>
 		</action>
 	</package>
 </struts>

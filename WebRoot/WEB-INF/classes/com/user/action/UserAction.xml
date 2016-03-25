@@ -13,7 +13,6 @@
 			<result name="getAll" type="json"></result>
 			<result name="toRegister">/WEB-INF/jsp/register.jsp</result>
 			<result name="toLogin">/WEB-INF/jsp/login.jsp</result>
-			<result name="toList">/WEB-INF/jsp/list.jsp</result>
 			<result name="toDetail">/WEB-INF/jsp/detail.jsp</result>
 			<result name="toRelease">/WEB-INF/jsp/release.jsp</result>
 			<result name="toInforPer">/WEB-INF/jsp/information-person.jsp</result>

@@ -5,7 +5,6 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.admin.domain.Admin;
 import com.admin.service.IAdminService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -21,17 +20,12 @@ public class AdminAction extends ActionSupport {
 	private String name;
 	private String password;
 	
-	public String update() throws Exception {
-		Admin admin = new Admin();
-		admin.setName(name);
-		admin.setPassword(password);
-		adminService.update(admin);
-		return "update";
-	}
-	
-	public String get() throws Exception {
-		adminService.get(id);
-		return "get";
+	public String loginAdmin() throws Exception {
+		if(adminService.loginAdmin(name, password) == true){
+			return "success";
+		}else{
+			return "fail";
+		}
 	}
 	
 	public long getId() {

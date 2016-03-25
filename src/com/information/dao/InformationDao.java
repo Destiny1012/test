@@ -39,6 +39,16 @@ public class InformationDao implements IInformationDao {
 	public List<Information> getAll() {
 		return getSession().createCriteria(Information.class).list();
 	}
+	
+	public int queryCount() {
+		return Integer.parseInt(getSession().createSQLQuery("select count(*) from informations").uniqueResult().toString());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Information> queryInformation(int currentPage, int pageSize) {
+		int startRow = (currentPage - 1) * pageSize;
+		return getSession().createQuery("from Information").setFirstResult(startRow).setMaxResults(pageSize).list();
+	}
 
 	protected Session getSession() {
 		return sessionFactory.getCurrentSession();

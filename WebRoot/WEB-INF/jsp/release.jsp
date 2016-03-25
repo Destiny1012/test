@@ -22,6 +22,26 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/release.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
+<link rel="styleshett" type="text/css" href="resource/css/default.css">
+
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript" src="resource/js/kindeditor-min.js"></script>
+<script type="text/javascript" src="resource/js/zh_CN.js"></script>
+<script>
+	var editor;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="content"]', {
+			resizeType : 1,
+			allowPreviewEmoticons : false,
+			allowImageUpload : false,
+			items : [ 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor',
+					'bold', 'italic', 'underline', 'removeformat', '|',
+					'justifyleft', 'justifycenter', 'justifyright',
+					'insertorderedlist', 'insertunorderedlist', '|',
+					'emoticons', 'image', 'link' ]
+		});
+	});
+</script>
 
 </head>
 
@@ -78,14 +98,12 @@
 	<div class="navigation">
 		<div class="center part">
 			<ul>
-				<li><a class="menu_on" href="index.jsp">首页</a>
-				</li>
+				<li><a class="menu_on" href="index.jsp">首页</a></li>
 				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
-					href="#">联系我们</a> <a href="user/toList">企业资质</a> <a href="user/toRelease">我要发布</a>
-				</li>
+					href="#">联系我们</a> <a href="user/toList">企业资质</a> <a
+					href="user/toRelease">我要发布</a></li>
 				<li id="part_img"><a href="#"> <img
-						src="resource/image/search.png"> </a>
-				</li>
+						src="resource/image/search.png"> </a></li>
 			</ul>
 		</div>
 	</div>
@@ -93,15 +111,17 @@
 		<div class="release">
 			<form action="information/save">
 				<div class="title">
-					<h1>标题：</h1><input type="text" name="bt">
+					<h1>标题：</h1>
+					<input type="text" name="bt">
 				</div>
 				<div class="small">
-					<span>归属地：</span><input type="text" placeholder="请输入“省份－城市”" name="gsd">
-					<span>号段：</span><input type="text" placeholder="移动／联通／170" name="hd">
+					<span>归属地：</span><input type="text" placeholder="请输入“省份－城市”"
+						name="gsd"> <span>号段：</span><input type="text"
+						placeholder="移动／联通／170" name="hd">
 				</div>
 				<div class="small">
-					<span>卡数量：</span><input type="text" name="ksl">
-					<span>机器数量：</span><input type="text" name="jqsl">
+					<span>卡数量：</span><input type="text" name="ksl"> <span>机器数量：</span><input
+						type="text" name="jqsl">
 				</div>
 				<div class="big">
 					<span class="left">内容：</span>
@@ -109,7 +129,9 @@
 						<span>工作时间：</span><input type="text" name="gzsj">
 					</div>
 					<br>
-					<textarea name="nr" rows="10" cols="30" wrap="hard"></textarea>
+					<textarea id="editor_id" name="content" style="width:700px;height:300px;">
+						&lt;strong&gt;HTML内容&lt;/strong&gt;
+					</textarea>
 				</div>
 			</form>
 		</div>
@@ -117,14 +139,10 @@
 	<div class="foot_track">
 		<div class="center">
 			<ul>
-				<li><img src="resource/image/fuwu_1.png">
-				</li>
-				<li><img src="resource/image/fuwu_2.png">
-				</li>
-				<li><img src="resource/image/fuwu_3.png">
-				</li>
-				<li><img src="resource/image/fuwu_4.png">
-				</li>
+				<li><img src="resource/image/fuwu_1.png"></li>
+				<li><img src="resource/image/fuwu_2.png"></li>
+				<li><img src="resource/image/fuwu_3.png"></li>
+				<li><img src="resource/image/fuwu_4.png"></li>
 			</ul>
 		</div>
 	</div>

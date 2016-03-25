@@ -86,16 +86,16 @@
 			</ul>
 			<ul>
 				<li><h2>我的订单</h2></li>
-				<li><a href="user/toInforOrd">全部订单</a></li>
-				<li><a href="user/toInforHan">已购买订单</a></li>
-				<li><a href="user/toInforUnh">待处理订单</a></li>
+				<li><a href="information/infoOrd">全部订单</a></li>
+				<li><a href="information/infoHan">已购买订单</a></li>
+				<li><a href="information/infoUnh">待处理订单</a></li>
 			</ul>
 			<ul>
 				<li>
 					<h2>我的发布</h2></li>
-				<li><a href="user/toInforAll">全部发布</a></li>
-				<li><a href="user/toInforRel">已发布订单</a></li>
-				<li><a href="user/toInforAud">待审核订单</a></li>
+				<li><a href="information/infoAll">全部发布</a></li>
+				<li><a href="information/infoRel">已发布订单</a></li>
+				<li><a href="information/infoAud">待审核订单</a></li>
 			</ul>
 		</div>
 		<div class="information_right right">

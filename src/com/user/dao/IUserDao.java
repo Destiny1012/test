@@ -19,5 +19,7 @@ public interface IUserDao {
 	public List<User> getByIds(Long[] ids);
 	
 	public List<User> findAll();
+	
+	public List<User> findByEmailAndPassword(String email, String password);
 
 }

@@ -36,8 +36,8 @@
 			<list>
 				<value>classpath:com/user/domain/</value>
 				<value>classpath:com/information/domain/</value>
-				<!-- <value>classpath:com/admin/domain/</value>
-				<value>classpath:com/reply/domain/</value> -->
+				<value>classpath:com/admin/domain/</value>
+				<!-- <value>classpath:com/reply/domain/</value> -->
 			</list>
 		</property>
 		<!-- 指定hibernate的配置文件的位置 -->

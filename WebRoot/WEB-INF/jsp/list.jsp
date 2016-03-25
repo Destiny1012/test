@@ -1,10 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" contentType="text/html; UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
+	contentType="text/html; UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE HTML>
 <html>
@@ -22,8 +24,8 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/list.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script type="text/javascript" src="resource/js/list.js"></script>
+<!-- <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript" src="resource/js/list.js"></script> -->
 
 </head>
 
@@ -80,11 +82,14 @@
 	<div class="navigation">
 		<div class="center part">
 			<ul>
-				<li><a href="index.jsp">首页</a></li>
+				<li><a href="index.jsp">首页</a>
+				</li>
 				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
-					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
-				<li id="part_img"><a href="user/toList"> <img src="resource/image/search.png">
-				</a></li>
+					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a>
+				</li>
+				<li id="part_img"><a href="user/toList"> <img
+						src="resource/image/search.png"> </a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -93,24 +98,34 @@
 			<div class="list_top">
 				<span>买卖信息列表</span>
 			</div>
-			<div class="list_n">
-				<ul id="information">
-					<li><a href="#">
-							<h1>【Java基础+项目实战+面试技巧】培训</h1> <span>2016-03-11</span>
-							<p>
-								美联科技教育秉承的是一种高强度、高深度的课程训练法，高深度的课程单凭学员自己琢磨来做项目的话没有一到两年时间是不可能达到的，美联科技教育的做法是由教师带领学员
-								手把手的写代码，每一个字母、每一行程序都是由老师敲完一...</p> </a></li>
+			<div>
+				<ul class="list_n">
+					<s:iterator value="list" var="information" status="st">
+						<li><a href="#">
+								<h1>
+									<s:property value="#information.bt" />
+								</h1> <span><s:property value="#information.fbsj" /> </span>
+								<p>
+									<s:property value="#information.nr" />
+								</p> </a>
+						</li>
+					</s:iterator>
 				</ul>
+				<div>${pageBar}</div>
 			</div>
 		</div>
 	</div>
 	<div class="foot_track">
 		<div class="center">
 			<ul>
-				<li><img src="resource/image/fuwu_1.png"></li>
-				<li><img src="resource/image/fuwu_2.png"></li>
-				<li><img src="resource/image/fuwu_3.png"></li>
-				<li><img src="resource/image/fuwu_4.png"></li>
+				<li><img src="resource/image/fuwu_1.png">
+				</li>
+				<li><img src="resource/image/fuwu_2.png">
+				</li>
+				<li><img src="resource/image/fuwu_3.png">
+				</li>
+				<li><img src="resource/image/fuwu_4.png">
+				</li>
 			</ul>
 		</div>
 	</div>

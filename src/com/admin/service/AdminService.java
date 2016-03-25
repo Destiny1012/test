@@ -13,6 +13,26 @@ public class AdminService implements IAdminService {
 	@Resource
 	private IAdminDao adminDao;
 	
+	public boolean save(Admin admin) {
+		try{
+			adminDao.save(admin);
+			return true;
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean delete(long id) {
+		try{
+			adminDao.delete(id);
+			return true;
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	public boolean update(Admin admin) {
 		try{
 			adminDao.update(admin);
@@ -29,6 +49,19 @@ public class AdminService implements IAdminService {
 		}catch(Exception e){
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public boolean loginAdmin(String name, String password) {
+		try{
+			if(adminDao.findByNameAndPassword(name, password).size() > 0){
+				return true;
+			}else{
+				return false;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
 		}
 	}
 

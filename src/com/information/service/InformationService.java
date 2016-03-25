@@ -62,5 +62,23 @@ public class InformationService implements IInformationService {
 			return null;
 		}
 	}
+	
+	public int getCount() {
+		try{
+			return informationDao.queryCount();
+		}catch(Exception e){
+			e.printStackTrace();
+			return -1;
+		}
+	}
+	
+	public List<Information> getList(int currentPage, int pageSize) {
+		try{
+			return informationDao.queryInformation(currentPage, pageSize);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

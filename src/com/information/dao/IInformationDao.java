@@ -15,5 +15,9 @@ public interface IInformationDao {
 	public Information get(long id);
 	
 	public List<Information> getAll();
+	
+	public int queryCount();
+	
+	public List<Information> queryInformation(int currentPage, int pageSize);
 
 }
