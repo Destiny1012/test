@@ -21,7 +21,14 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/index.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-
+<script type="text/javascript">
+	$.ajax(function(){
+	
+	if(data.result == "true"){
+		window.localtion.href=""
+	}
+	});
+</script>
 </head>
 
 <body>

@@ -33,6 +33,7 @@ public class UserAction extends ActionSupport {
 	private String pageBar;
 
 	public String save() throws Exception {
+		 
 		User user = new User();
 		user.setEmail(email);
 		user.setPassword(password);

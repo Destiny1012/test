@@ -18,6 +18,7 @@
 	<include file="com/user/action/UserAction.xml"></include>
 	<include file="com/information/action/InformationAction.xml"></include>
 	<include file="com/admin/action/AdminAction.xml"></include>
+	<include file="com/page/action/PageAction.xml"></include>
 	<!-- <include file="com/reply/action/ReplyAction.xml"></include> -->
 
 </struts>
