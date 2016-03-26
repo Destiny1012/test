@@ -11,15 +11,9 @@
 			<result name="get" type="json"></result>
 			<result name="execute" type="json"></result>
 			<result name="getAll" type="json"></result>
-			<result name="toRegister">/WEB-INF/jsp/register.jsp</result>
-			<result name="toDetail">/WEB-INF/jsp/detail.jsp</result>
-			<result name="toRelease">/WEB-INF/jsp/release.jsp</result>
-			<result name="toInforPer">/WEB-INF/jsp/information-person.jsp</result>
-			<result name="toInforUp">/WEB-INF/jsp/information-update.jsp</result>
-			<result name="toInforPas">/WEB-INF/jsp/information-password.jsp</result>
-			<result name="toInforPass">/WEB-INF/jsp/information-password-.jsp</result>
 			<result name="admin">/admin-manage.jsp</result>
-			<result name="success">/WEB-INF/jsp/list.jsp</result>
+			<result name="success">/WEB-INF/jsp/personal/information-person.jsp</result>
+			<result name="fail">/index.jsp</result>
 		</action>
 	</package>
 </struts>

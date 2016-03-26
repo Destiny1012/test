@@ -5,14 +5,13 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE HTML>
 <html>
 <head>
 <base href="<%=basePath%>">
 
-<title>information-handled</title>
+<title>login</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -21,10 +20,8 @@
 <meta http-equiv="description" content="This is my page">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="resource/css/information.css">
+<link rel="stylesheet" type="text/css" href="resource/css/login.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script type="text/javascript" src="resource/js/easy-list.js"></script>
 
 </head>
 
@@ -32,8 +29,8 @@
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				您好, <a href="information.html">用户名</a> <a href="#"
-					style="color: #333;">退出</a>
+				欢迎来到28卡 <span> <a href="user/toLogin">请登录</a> - <a
+					href="user/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -65,7 +62,7 @@
 	</div>
 	<div class="center logo">
 		<div class="left">
-			<a href="index.jsp"> <img src="resource/image/logo.gif"> </a>
+			<a href="#"> <img src="resource/image/logo.gif"> </a>
 		</div>
 		<div class="right search">
 			<div class="search_box">
@@ -78,60 +75,44 @@
 			</div>
 		</div>
 	</div>
-	<div style="border: 1px solid #dfdfdf;clear: both;"></div>
+	<div class="navigation">
+		<div class="center part">
+			<ul>
+				<li><a class="menu_on" href="index.jsp">首页</a></li>
+				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
+					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
+				<li id="part_img"><a href="information/list"> <img
+						src="resource/image/search.png"> </a></li>
+			</ul>
+		</div>
+	</div>
 	<div class="center">
-		<div class="information_left left">
-			<ul>
-				<li><h2>个人中心</h2></li>
-				<li><a href="user/toInforPer">基础信息</a></li>
-				<li><a href="user/toInforUp">修改信息</a></li>
-				<li><a href="user/toInforPas">密码修改</a></li>
-			</ul>
-			<ul>
-				<li><h2>我的订单</h2></li>
-				<li><a href="information/infoOrd">全部订单</a></li>
-				<li><a href="information/infoHan" class="check">已购买订单</a></li>
-				<li><a href="information/infoUnh">待处理订单</a></li>
-			</ul>
+		<div class="left login_left">
+			<img src="resource/image/0.png">
+		</div>
+		<form class="left login_right" action="user/loginUser">
 			<ul>
 				<li>
-					<h2>我的发布</h2></li>
-				<li><a href="information/infoAll">全部发布</a></li>
-				<li><a href="information/infoRel">已发布订单</a></li>
-				<li><a href="information/infoAud">待审核订单</a></li>
+					<h1>账户登陆</h1>
+				</li>
+				<li>用户名</li>
+				<li><input type="text" name="email" placeholder="请输入Email">
+				</li>
+				<li>密码</li>
+				<li><input type="password" name="password" placeholder="请输入密码">
+				</li>
+				<li>验证码</li>
+				<li><input type="text" placeholder="请输入验证码"
+					style="width: 160px;"> <img src="#"
+					style="width: 70px;height: 23px;vertical-align: middle;">
+				</li>
+				<li><input id="login_btn" type="submit" value="">
+					<div class="right" style="line-height: 32px;">
+						还没有账号？ <a href="page/toRegister" style="color: #36c;">立即注册</a>
+					</div>
+				</li>
 			</ul>
-		</div>
-		<div class="information_right right">
-			<div class="information">
-				<div class="information_title">*修改信息</div>
-				<div class="information_top">
-					<span>用户名</span>
-				</div>
-				<div class="information_list">
-					<table>
-						<thead>
-							<tr>
-								<td width="65%">标题</td>
-								<td width="35%">时间</td>
-							</tr>
-						</thead>
-						<tbody>
-							<s:iterator value="list" var="information" status="st">
-								<tr>
-									<td>
-										<s:property value="#information.bt"/>
-									</td>
-									<td>
-										<s:property value="#information.fbsj"/>
-									</td>
-								</tr>
-							</s:iterator>
-						</tbody>
-					</table>
-					<div>${pageBar}</div>
-				</div>
-			</div>
-		</div>
+		</form>
 	</div>
 	<div class="foot_track">
 		<div class="center">

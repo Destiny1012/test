@@ -5,13 +5,13 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
 <base href="<%=basePath%>">
 
-<title>information-all</title>
+<title>information-password</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -22,8 +22,9 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/information.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
+
 <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script type="text/javascript" src="resource/js/easy-list.js"></script>
+<script type="text/javascript" src="resource/js/session.js"></script>
 
 </head>
 
@@ -84,7 +85,7 @@
 				<li><h2>个人中心</h2></li>
 				<li><a href="user/toInforPer">基础信息</a></li>
 				<li><a href="user/toInforUp">修改信息</a></li>
-				<li><a href="user/toInforPas">密码修改</a></li>
+				<li><a href="user/toInforPas" class="check">密码修改</a></li>
 			</ul>
 			<ul>
 				<li><h2>我的订单</h2></li>
@@ -95,39 +96,26 @@
 			<ul>
 				<li>
 					<h2>我的发布</h2></li>
-				<li><a href="information/infoAll" class="check">全部发布</a></li>
+				<li><a href="information/infoAll">全部发布</a></li>
 				<li><a href="information/infoRel">已发布订单</a></li>
 				<li><a href="information/infoAud">待审核订单</a></li>
 			</ul>
 		</div>
 		<div class="information_right right">
 			<div class="information">
-				<div class="information_title">*修改信息</div>
+				<div class="information_title">*密码修改</div>
 				<div class="information_top">
 					<span>用户名</span>
 				</div>
 				<div class="information_list">
-					<table>
-						<thead>
-							<tr>
-								<td width="65%">标题</td>
-								<td width="35%">时间</td>
-							</tr>
-						</thead>
-						<tbody>
-							<s:iterator value="list" var="information" status="st">
-								<tr>
-									<td>
-										<s:property value="#information.bt"/>
-									</td>
-									<td>
-										<s:property value="#information.fbsj"/>
-									</td>
-								</tr>
-							</s:iterator>
-						</tbody>
-					</table>
-					<div>${pageBar}</div>
+					<ul>
+						<li><label>是否给123****4567发送信息进行验证</label></li>
+						<li><input type="submit" value="发送"
+							style="margin-left: 80px;width: 60px;"></li>
+						<li><span>验证码：</span> <input type="text" style="width: 60px;"></li>
+						<li><input onclick="user/toInforPass" type="submit" value="下一步"
+							style="margin-left: 80px;width: 60px;"></li>
+					</ul>
 				</div>
 			</div>
 		</div>

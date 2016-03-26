@@ -23,6 +23,9 @@
 <link rel="stylesheet" type="text/css" href="resource/css/detail.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript" src="resource/js/session.js"></script>
+
 </head>
 
 <body>

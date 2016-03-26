@@ -5,13 +5,14 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE HTML>
 <html>
 <head>
 <base href="<%=basePath%>">
 
-<title>information-update</title>
+<title>information-unhandled</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -22,6 +23,25 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/information.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
+
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type : "get",
+		url : "page/checkLogin",
+		dataType : "json",
+		success : function(data) {
+			if (data.result == "true") {
+				window.location.href = "information/infoUnh";
+			} else {
+				window.location.href = "page/toLogin";
+			}
+			
+		}
+	});
+});
+</script>
 
 </head>
 
@@ -81,14 +101,14 @@
 			<ul>
 				<li><h2>个人中心</h2></li>
 				<li><a href="user/toInforPer">基础信息</a></li>
-				<li><a href="user/toInforUp" class="check">修改信息</a></li>
+				<li><a href="user/toInforUp">修改信息</a></li>
 				<li><a href="user/toInforPas">密码修改</a></li>
 			</ul>
 			<ul>
 				<li><h2>我的订单</h2></li>
 				<li><a href="information/infoOrd">全部订单</a></li>
 				<li><a href="information/infoHan">已购买订单</a></li>
-				<li><a href="information/infoUnh">待处理订单</a></li>
+				<li><a href="information/infoUnh" class="check">待处理订单</a></li>
 			</ul>
 			<ul>
 				<li>
@@ -105,14 +125,27 @@
 					<span>用户名</span>
 				</div>
 				<div class="information_list">
-					<ul>
-						<li><span>昵称：</span> <input type="text"></li>
-						<li><span>Email：</span> <input type="text"></li>
-						<li><span>手机：</span> <input type="text"></li>
-						<li><span>QQ：</span> <input type="text"></li>
-						<li><input type="submit" value="保存"
-							style="margin-left: 80px;width: 60px;"></li>
-					</ul>
+					<table>
+						<thead>
+							<tr>
+								<td width="65%">标题</td>
+								<td width="35%">时间</td>
+							</tr>
+						</thead>
+						<tbody>
+							<s:iterator value="list" var="information" status="st">
+								<tr>
+									<td>
+										<s:property value="#information.bt"/>
+									</td>
+									<td>
+										<s:property value="#information.fbsj"/>
+									</td>
+								</tr>
+							</s:iterator>
+						</tbody>
+					</table>
+					<div>${pageBar}</div>
 				</div>
 			</div>
 		</div>

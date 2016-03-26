@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>information-unhandled</title>
+<title>information-audit</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -23,8 +23,24 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/information.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
+
 <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script type="text/javascript" src="resource/js/easy-list.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type : "get",
+		url : "page/checkLogin",
+		dataType : "json",
+		success : function(data) {
+			if (data.result == "true") {
+				window.location.href = "information/infoAud";
+			} else {
+				window.location.href = "page/toLogin";
+			}
+		}
+	});
+});
+</script>
 
 </head>
 
@@ -91,14 +107,14 @@
 				<li><h2>我的订单</h2></li>
 				<li><a href="information/infoOrd">全部订单</a></li>
 				<li><a href="information/infoHan">已购买订单</a></li>
-				<li><a href="information/infoUnh" class="check">待处理订单</a></li>
+				<li><a href="information/infoUnh">待处理订单</a></li>
 			</ul>
 			<ul>
 				<li>
 					<h2>我的发布</h2></li>
 				<li><a href="information/infoAll">全部发布</a></li>
 				<li><a href="information/infoRel">已发布订单</a></li>
-				<li><a href="information/infoAud">待审核订单</a></li>
+				<li><a href="information/infoAud" class="check">待审核订单</a></li>
 			</ul>
 		</div>
 		<div class="information_right right">

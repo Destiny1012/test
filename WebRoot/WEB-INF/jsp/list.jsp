@@ -24,8 +24,24 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/list.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-<!-- <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script type="text/javascript" src="resource/js/list.js"></script> -->
+
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type : "get",
+		url : "page/checkLogin",
+		dataType : "json",
+		success : function(data) {
+			if (data.result == "true") {
+				window.location.href = "information/getList";
+			} else {
+				window.location.href = "page/toLogin";
+			}
+		}
+	});
+});
+</script>
 
 </head>
 

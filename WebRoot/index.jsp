@@ -21,22 +21,17 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/index.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-<script type="text/javascript">
-	$.ajax(function(){
-	
-	if(data.result == "true"){
-		window.localtion.href=""
-	}
-	});
-</script>
+
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript"></script>
 </head>
 
 <body>
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="login.jsp">请登录</a> - <a
-					href="user/toRegister">免费注册</a> </span>
+				欢迎来到28卡 <span> <a href="page/toLogin">请登录</a> - <a
+					href="page/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -61,8 +56,8 @@
 					<a href="#">我的订单</a>
 				</div>
 			</div>
-			<span class="right top1">|</span> <span class="right top2"> <a
-				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
+			<span class="right top1">|</span> <span id="try" class="right top2">
+				<a href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
 				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
@@ -85,10 +80,11 @@
 		<div class="center part">
 			<ul>
 				<li><a class="menu_on" href="index.jsp">首页</a></li>
-				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a href="#">联系我们</a>
-					<a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
-				<li id="part_img"><a href="information/list"> <img src="resource/image/search.png">
-				</a></li>
+				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
+					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a>
+				</li>
+				<li id="part_img"><a href="information/list"> <img
+						src="resource/image/search.png"> </a></li>
 			</ul>
 		</div>
 	</div>
@@ -113,15 +109,17 @@
 		</div>
 		<div class="list_btn">
 			<div class="title_btn">
-				<a class="a1" href="user/toRegister"></a> <a class="a2" href="user/toLogin"></a> <a
-					class="a3" href="#"></a>
+				<a class="a1" href="user/toRegister"></a> <a class="a2"
+					href="user/toLogin"></a> <a class="a3" href="#"></a>
 			</div>
 			<form class="form_btn">
 				<ul>
-					<li><input type="text" name="email" placeholder="请输入用户名/Email"></li>
-					<li><input type="password" name="password" placeholder="请输入登陆密码"></li>
-					<li><input type="text" placeholder="请输入验证码" style="width: 160px;">
-						<img src="#"
+					<li><input type="text" name="email" placeholder="请输入用户名/Email">
+					</li>
+					<li><input type="password" name="password"
+						placeholder="请输入登陆密码"></li>
+					<li><input type="text" placeholder="请输入验证码"
+						style="width: 160px;"> <img src="#"
 						style="vertical-align: middle; width: 70px; height: 23px;">
 					</li>
 					<li><input type="image" src="resource/image/login_1.png"
@@ -144,7 +142,8 @@
 	<div class="center">
 		<div class="content">
 			<div class="content_tab">
-				<img src="resource/image/tab.jpeg" style="width: 676px; height: 267px;">
+				<img src="resource/image/tab.jpeg"
+					style="width: 676px; height: 267px;">
 			</div>
 			<div class="kill">
 				<h3 class="cent">站内动态</h3>
@@ -178,8 +177,8 @@
 	</div>
 	<div class="foot">
 		<div class="center foot_font">
-			<a href="index.jsp" class="hs"> 首 页 </a> | <a href="#" class="hs">  关于我们 </a>
-			| <a href="#" class="hs"> 联系我们 </a> | <a href="#" class="hs">
+			<a href="index.jsp" class="hs"> 首 页 </a> | <a href="#" class="hs">
+				 关于我们 </a> | <a href="#" class="hs"> 联系我们 </a> | <a href="#" class="hs">
 				 免责声明 </a> | <a href="#" class="hs"> 商务合作 </a> | <a href="#" class="hs"> 诚聘英才 </a>
 			| <a href="#" class="hs"> 注册28发卡前必读 </a> | <a href="#" class="hs"> 公司资质 </a><br>
 			Copyright Reserved 2008-2014 © <a href="#" class="hs">www.28ka.com</a>

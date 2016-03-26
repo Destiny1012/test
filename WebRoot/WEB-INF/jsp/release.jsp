@@ -22,25 +22,23 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/release.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-<link rel="styleshett" type="text/css" href="resource/css/default.css">
 
 <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script type="text/javascript" src="resource/js/kindeditor-min.js"></script>
-<script type="text/javascript" src="resource/js/zh_CN.js"></script>
-<script>
-	var editor;
-	KindEditor.ready(function(K) {
-		editor = K.create('textarea[name="content"]', {
-			resizeType : 1,
-			allowPreviewEmoticons : false,
-			allowImageUpload : false,
-			items : [ 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor',
-					'bold', 'italic', 'underline', 'removeformat', '|',
-					'justifyleft', 'justifycenter', 'justifyright',
-					'insertorderedlist', 'insertunorderedlist', '|',
-					'emoticons', 'image', 'link' ]
-		});
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type : "get",
+		url : "page/checkLogin",
+		dataType : "json",
+		success : function(data) {
+			if (data.result == "true") {
+				window.location.href = "page/toRelease";
+			} else {
+				window.location.href = "page/toLogin";
+			}
+		}
 	});
+});
 </script>
 
 </head>

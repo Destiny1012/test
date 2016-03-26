@@ -5,19 +5,19 @@
 <struts>
 	<package name="information" namespace="/information" extends="json-default">
 		<action name="*" class="com.information.action.InformationAction" method="{1}">
-			<result name="save" type="json"></result>
+			<result name="save">/WEB-INF/jsp/personal/information-person.jsp</result>
 			<result name="delete" type="json">success</result>
 			<result name="update" type="json">success</result>
 			<result name="get" type="json">success</result>
 			<result name="getAll" type="json"></result>
 			<result name="list">/WEB-INF/jsp/list.jsp</result>
-			<result name="infoAll">/WEB-INF/jsp/information-all.jsp</result>
-			<result name="infoAud">/WEB-INF/jsp/information-audit.jsp</result>
-			<result name="infoRel">/WEB-INF/jsp/information-release.jsp</result>
-			<result name="infoOrd">/WEB-INF/jsp/information-order.jsp</result>
-			<result name="infoHan">/WEB-INF/jsp/information-handled.jsp</result>
-			<result name="infoUnh">/WEB-INF/jsp/information-unhandled.jsp</result>
-			<result name="infoAdmin">/admin-order.jsp</result>
+			<result name="infoAll">/WEB-INF/jsp/personal/information-all.jsp</result>
+			<result name="infoAud">/WEB-INF/jsp/personal/information-audit.jsp</result>
+			<result name="infoRel">/WEB-INF/jsp/personal/information-release.jsp</result>
+			<result name="infoOrd">/WEB-INF/jsp/personal/information-order.jsp</result>
+			<result name="infoHan">/WEB-INF/jsp/personal/information-handled.jsp</result>
+			<result name="infoUnh">/WEB-INF/jsp/personal/information-unhandled.jsp</result>
+			<result name="infoAdmin">/WEB-INF/jsp/admin/admin-order.jsp</result>
 		</action>
 	</package>
 </struts>

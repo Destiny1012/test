@@ -20,6 +20,11 @@
 				<comment>密码</comment>
 			</column>
 		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="8">
+				<comment>密码</comment>
+			</column>
+		</property>
 		<property name="tel" type="java.lang.String">
 			<column name="tel" length="11">
 				<comment>手机</comment>

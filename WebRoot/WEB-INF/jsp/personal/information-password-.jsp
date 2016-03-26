@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>information-person</title>
+<title>information-password-</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -22,7 +22,24 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/information.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
+
 <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type : "get",
+		url : "page/checkLogin",
+		dataType : "json",
+		success : function(data) {
+			if (data.result == "true") {
+				window.location.href = "page/toInforPas";
+			} else {
+				window.location.href = "page/toLogin";
+			}
+		}
+	});
+});
+</script>
 
 </head>
 
@@ -81,9 +98,9 @@
 		<div class="information_left left">
 			<ul>
 				<li><h2>个人中心</h2></li>
-				<li><a href="user/toInforPer" class="check">基础信息</a></li>
-				<li><a href="user/toInforUp">修改信息</a></li>
-				<li><a href="user/toInforPas">密码修改</a></li>
+				<li><a href="page/toInforPer">基础信息</a></li>
+				<li><a href="page/toInforUp">修改信息</a></li>
+				<li><a href="page/toInforPas" class="check">密码修改</a></li>
 			</ul>
 			<ul>
 				<li><h2>我的订单</h2></li>
@@ -101,18 +118,11 @@
 		</div>
 		<div class="information_right right">
 			<div class="information">
-				<div class="information_title">*基础信息</div>
+				<div class="information_title">*密码修改</div>
 				<div class="information_top">
 					<span>用户名</span>
 				</div>
-				<div class="information_list">
-					<ul>
-						<li><span>昵称：</span> <label>用户名</label></li>
-						<li><span>Email：</span> <label>123456@123.com</label></li>
-						<li><span>手机：</span> <label>12345678900</label></li>
-						<li><span>QQ：</span> <label>1234567890</label></li>
-					</ul>
-				</div>
+				<div class="information_list"></div>
 			</div>
 		</div>
 	</div>

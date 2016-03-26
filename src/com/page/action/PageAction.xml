@@ -6,6 +6,14 @@
 	<package name="page" namespace="/page" extends="json-default">
 		<action name="*" class="com.page.action.PageAction" method="{1}">
 			<result name="checkLogin" type="json"></result>
+			<result name="toLogin">/WEB-INF/jsp/login.jsp</result>
+			<result name="toRegister">/WEB-INF/jsp/register.jsp</result>
+			<result name="toDetail">/WEB-INF/jsp/detail.jsp</result>
+			<result name="toRelease">/WEB-INF/jsp/release.jsp</result>
+			<result name="toInforPer">/WEB-INF/jsp/personal/information-person.jsp</result>
+			<result name="toInforUp">/WEB-INF/jsp/personal/information-update.jsp</result>
+			<result name="toInforPas">/WEB-INF/jsp/personal/information-password.jsp</result>
+			<result name="toInforPass">/WEB-INF/jsp/personal/information-password-.jsp</result>
 		</action>
 	</package>
 </struts>

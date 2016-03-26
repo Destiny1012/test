@@ -1,18 +1,21 @@
 package com.user.action;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.user.domain.User;
 import com.user.service.IUserService;
 
 @Controller
 @Scope("prototype")
+@SuppressWarnings("rawtypes")
 public class UserAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
@@ -22,6 +25,7 @@ public class UserAction extends ActionSupport {
 	private long id;
 	private String email;
 	private String password;
+	private String name;
 	private String tel;
 	private String qq;
 	private String result;
@@ -33,10 +37,10 @@ public class UserAction extends ActionSupport {
 	private String pageBar;
 
 	public String save() throws Exception {
-		 
 		User user = new User();
 		user.setEmail(email);
 		user.setPassword(password);
+		user.setName(name);
 		user.setTel(tel);
 		user.setQq(qq);
 		userService.saveUser(user);
@@ -44,8 +48,13 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String delete() throws Exception {
-		if (userService.deleteUser(id)) {
-			result = "success";
+		Map session = ActionContext.getContext().getSession();
+		if (session.get("email") != null) {
+			if (userService.deleteUser(id)) {
+				result = "success";
+			} else {
+				result = "fail";
+			}
 		} else {
 			result = "fail";
 		}
@@ -53,13 +62,19 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String update() throws Exception {
-		User user = userService.getById(id);
-		user.setEmail(email);
-		user.setPassword(password);
-		user.setTel(tel);
-		user.setQq(qq);
-		if (userService.updateUser(user)) {
-			result = "success";
+		Map session = ActionContext.getContext().getSession();
+		if (session.get("email") != null) {
+			User user = userService.getById(id);
+			user.setEmail(email);
+			user.setPassword(password);
+			user.setName(name);
+			user.setTel(tel);
+			user.setQq(qq);
+			if (userService.updateUser(user)) {
+				result = "success";
+			} else {
+				result = "fail";
+			}
 		} else {
 			result = "fail";
 		}
@@ -67,32 +82,45 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String get() throws Exception {
-		userService.getById(id);
+		Map session = ActionContext.getContext().getSession();
+		if (session.get("email") != null) {
+			userService.getById(id);
+			result = "success";
+		} else {
+			result = "fail";
+		}
 		return "get";
 	}
 
 	public String loginUser() throws Exception {
-		if(userService.loginUser(email, password) == true){
+		if (userService.loginUser(email, password) == true) {
+			ActionContext.getContext().getSession().put("email", email);
 			return "success";
-		}else{
+		} else {
 			return "fail";
 		}
 	}
 
 	public String getAll() throws Exception {
-		list = userService.findAll();
+		Map session = ActionContext.getContext().getSession();
+		if(session.get("email") != null){
+			list = userService.findAll();
+			result = "success";
+		}else{
+			result = "fail";
+		}
 		return "getAll";
 	}
 
 	public String admin() throws Exception {
-		if(currentPage == 0){
+		if (currentPage == 0) {
 			currentPage = 1;
 		}
 		totalSize = userService.getCount();
 		int mod = totalSize % pageSize;
-		if(mod == 0){
+		if (mod == 0) {
 			totalPage = totalSize / pageSize;
-		}else{
+		} else {
 			totalPage = totalSize / pageSize + 1;
 		}
 		pageBar = "<nav>";
@@ -100,44 +128,19 @@ public class UserAction extends ActionSupport {
 		pageBar += "<li><a href='user/admin?currentPage=1'>首页 </a></li>";
 		for (int i = 1; i <= totalPage; i++) {
 			if (i == currentPage) {
-				pageBar += " <li class='active'><a href='user/admin?currentPage=" + i + "'>" + i + "</a></li>";
+				pageBar += " <li class='active'><a href='user/admin?currentPage="
+						+ i + "'>" + i + "</a></li>";
 			} else {
-				pageBar += " <li><a href='user/admin?currentPage=" + i + "'>" + i + "</a></li>";
+				pageBar += " <li><a href='user/admin?currentPage=" + i + "'>"
+						+ i + "</a></li>";
 			}
 		}
-		pageBar += "<li><a href='user/admin?currentPage=" + totalPage + "'>尾页</a></li>";
+		pageBar += "<li><a href='user/admin?currentPage=" + totalPage
+				+ "'>尾页</a></li>";
 		pageBar += "</ul>";
 		pageBar += "</nav>";
 		list = userService.getList(currentPage, pageSize);
 		return "admin";
-	}
-
-	public String toRegister() throws Exception {
-		return "toRegister";
-	}
-
-	public String toDetail() throws Exception {
-		return "toDetail";
-	}
-
-	public String toRelease() throws Exception {
-		return "toRelease";
-	}
-
-	public String toInforPer() throws Exception {
-		return "toInforPer";
-	}
-
-	public String toInforUp() throws Exception {
-		return "toInforUp";
-	}
-
-	public String toInforPas() throws Exception {
-		return "toInforPas";
-	}
-
-	public String toInforPass() throws Exception {
-		return "toInforPass";
 	}
 
 	public String getEmail() {
@@ -154,6 +157,14 @@ public class UserAction extends ActionSupport {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getTel() {

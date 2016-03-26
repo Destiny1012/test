@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>information-password</title>
+<title>information-update</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -20,9 +20,26 @@
 <meta http-equiv="description" content="This is my page">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css"
-	href="resource/css/information.css">
+<link rel="stylesheet" type="text/css" href="resource/css/information.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
+
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type : "get",
+		url : "page/checkLogin",
+		dataType : "json",
+		success : function(data) {
+			if (data.result == "true") {
+				window.location.href = "page/toInforUp";
+			} else {
+				window.location.href = "page/toLogin";
+			}
+		}
+	});
+});
+</script>
 
 </head>
 
@@ -81,9 +98,9 @@
 		<div class="information_left left">
 			<ul>
 				<li><h2>个人中心</h2></li>
-				<li><a href="user/toInforPer">基础信息</a></li>
-				<li><a href="user/toInforUp">修改信息</a></li>
-				<li><a href="user/toInforPas" class="check">密码修改</a></li>
+				<li><a href="page/toInforPer">基础信息</a></li>
+				<li><a href="page/toInforUp" class="check">修改信息</a></li>
+				<li><a href="page/toInforPas">密码修改</a></li>
 			</ul>
 			<ul>
 				<li><h2>我的订单</h2></li>
@@ -101,17 +118,17 @@
 		</div>
 		<div class="information_right right">
 			<div class="information">
-				<div class="information_title">*密码修改</div>
+				<div class="information_title">*修改信息</div>
 				<div class="information_top">
 					<span>用户名</span>
 				</div>
 				<div class="information_list">
 					<ul>
-						<li><label>是否给123****4567发送信息进行验证</label></li>
-						<li><input type="submit" value="发送"
-							style="margin-left: 80px;width: 60px;"></li>
-						<li><span>验证码：</span> <input type="text" style="width: 60px;"></li>
-						<li><input onclick="user/toInforPass" type="submit" value="下一步"
+						<li><span>昵称：</span> <input type="text"></li>
+						<li><span>Email：</span> <input type="text"></li>
+						<li><span>手机：</span> <input type="text"></li>
+						<li><span>QQ：</span> <input type="text"></li>
+						<li><input type="submit" value="保存"
 							style="margin-left: 80px;width: 60px;"></li>
 					</ul>
 				</div>
