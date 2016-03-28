@@ -139,8 +139,10 @@ public class InformationAction extends ActionSupport {
 		Map session = ActionContext.getContext().getSession();
 		if (session.get("email") != null) {
 			info = informationService.get(id);
+			System.out.println(id);
 			result = "success";
 		} else {
+			System.out.println(id+"s");
 			result = "fail";
 		}
 		return "listDetail";
@@ -368,6 +370,17 @@ public class InformationAction extends ActionSupport {
 		pageBar += "</nav>";
 		list = informationService.getList(currentPage, pageSize);
 		return "infoUnh";
+	}
+	
+	public String detailAdmin() throws Exception {
+		Map session = ActionContext.getContext().getSession();
+		if (session.get("name") != null) {
+			info = informationService.get(id);
+			result = "success";
+		} else {
+			result = "fail";
+		}
+		return "detailAdmin";
 	}
 
 	public String infoAdmin() throws Exception {

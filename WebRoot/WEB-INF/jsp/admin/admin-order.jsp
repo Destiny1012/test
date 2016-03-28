@@ -92,7 +92,7 @@ $(document).ready(function() {
 					<table rules="all">
 						<thead>
 							<tr>
-								<td width="35%">标题</td>
+								<td width="40%">标题</td>
 								<td width="10%">用户名</td>
 								<td width="5%">归属地</td>
 								<td width="5%">号段</td>
@@ -100,14 +100,13 @@ $(document).ready(function() {
 								<td width="5%">机器数量</td>
 								<td width="20">发布时间</td>
 								<td width="10%">状态</td>
-								<td width="5%">审核</td>
 							</tr>
 						</thead>
 						<tbody>
 							<s:iterator value="list" var="information" status="st">
 								<tr>
 									<td>
-										<s:property value="#information.bt" />
+										<a href=""><s:property value="#information.bt" /></a>
 									</td>
 									<td>
 										<s:property value="#information.belongUser" />
@@ -130,11 +129,6 @@ $(document).ready(function() {
 									<td>
 										<s:if test="#information.zt == 0">未审核</s:if>
 										<s:else>已审核</s:else>
-									</td>
-									<td id="btn">
-										<a href="page/toAdminDetail">
-											<button type="button">处理</button>
-										</a>
 									</td>
 								</tr>
 							</s:iterator>

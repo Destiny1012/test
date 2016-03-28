@@ -110,31 +110,26 @@ $(document).ready(function() {
 				<span>买卖信息详情</span>
 			</div>
 			<div class="detail_content">
-			<s:iterator value="list" var="information" status="st">
 				<div class="detail_title">
-					<h1><s:property value="#information.bt" /></h1>
-					<span>更新时间: 2015-07-05 09:00</span>
+					<h1>${info.bt}</h1>
+					<span>更新时间: ${info.fbsj}</span>
 				</div>
 				<div class="detail_n">
-					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;美联科技教育秉承的是一种高强度、高深度的课程训练法，高深度的课程单凭学员自己琢磨来做项目的话没有一到两年时间是不可能达到的，美联科技教育的做法是由教师带领学员
-						手把手的写代码，每一个字母、每一行程序都是由老师敲完一遍再指导学员敲第二遍，你将了解到整个项目的前后思路，并且将项目做到前所未有的深度，美联科技教育设有专门企业面试培训课程，培训学员面试技巧，帮助学员轻松找到理想工作。
-						丰富的多模式教学方法，先进的多媒体教学方式，以及独特的个性化学习，使学员在掌握理论知识与工具的同时，具备良好的自学能力和个人素质，从而具备更强的实际操作技能，在求职市场上，也更具竞争力。
-						美联科技教育王老师是资深互联网从业者，毕业于清华大学，后加入阿里巴巴和搜狐等知名互联网企业，参与了阿里云推荐团队的初创，曾负责和参与了云搜索，云推荐，展示广告等多款产品的设计研发和团队管理工作，项目经验丰富，讲课风趣幽默。</p>
+					<p>${info.nr}</p>
 				</div>
 				<div class="detail_person">
 					<table>
 						<tr>
-							<td width="50%">联系人：无名氏</td>
-							<td width="50%">手机：13664320122</td>
+							<td width="50%">联系人：${info.user.name}</td>
+							<td width="50%">手机：${info.user.tel}</td>
 						</tr>
 						<tr>
-							<td>QQ:1234567890</td>
-							<td>E-mail:123456@163.com</td>
+							<td>QQ:${info.user.qq}</td>
+							<td>E-mail:${info.user.email}</td>
 						</tr>
 					</table>
 					<span>联系时请说在28卡上看到的</span>
 				</div>
-			</s:iterator>
 			</div>
 		</div>
 	</div>
