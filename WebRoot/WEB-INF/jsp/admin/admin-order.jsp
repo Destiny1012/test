@@ -23,6 +23,24 @@
 <link rel="stylesheet" type="text/css" href="resource/css/admin.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 
+<script type="text/javascript" src=""></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type : "get",
+		url : "page/checkLogin",
+		dataType : "json",
+		success : function(data) {
+			if (data.result == "true") {
+				
+			} else {
+				window.location.href = "page/toAdminLogin";
+			}
+		}
+	});
+});
+</script>
+
 </head>
 
 <body>

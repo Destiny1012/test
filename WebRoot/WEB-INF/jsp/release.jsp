@@ -32,7 +32,7 @@ $(document).ready(function() {
 		dataType : "json",
 		success : function(data) {
 			if (data.result == "true") {
-				window.location.href = "page/toRelease";
+				/* window.location.href = "page/toRelease"; */
 			} else {
 				window.location.href = "page/toLogin";
 			}

@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>admin-login</title>
+<title>admin-detail</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -20,8 +20,26 @@
 <meta http-equiv="description" content="This is my page">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="resource/css/login.css">
+<link rel="stylesheet" type="text/css" href="resource/css/detail.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
+
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type : "get",
+		url : "page/checkLogin",
+		dataType : "json",
+		success : function(data) {
+			if (data.result == "true") {
+				/* window.location.href = "page/toDetail"; */
+			} else {
+				window.location.href = "page/toAdminLogin";
+			}
+		}
+	});
+});
+</script>
 
 </head>
 
@@ -29,8 +47,8 @@
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="admin-login.jsp">请登录</a> - <a
-					href="user/toRegister">免费注册</a> </span>
+				欢迎来到28卡 <span> <a href="page/toLogin">请登录</a> - <a
+					href="page/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -56,13 +74,13 @@
 				</div>
 			</div>
 			<span class="right top1">|</span> <span class="right top2"> <a
-				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
+				href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
 				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
 	<div class="center logo">
 		<div class="left">
-			<a href="#"> <img src="resource/image/logo.gif"> </a>
+			<a href="index.jsp"> <img src="resource/image/logo.gif"> </a>
 		</div>
 		<div class="right search">
 			<div class="search_box">
@@ -78,7 +96,7 @@
 	<div class="navigation">
 		<div class="center part">
 			<ul>
-				<li><a class="menu_on" href="index.jsp">首页</a></li>
+				<li><a href="index.jsp">首页</a></li>
 				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
 					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
 				<li id="part_img"><a href="user/toList"> <img
@@ -87,32 +105,36 @@
 		</div>
 	</div>
 	<div class="center">
-		<div class="left login_left">
-			<img src="resource/image/0.png">
+		<div class="detail">
+			<div class="detail_top">
+				<span>买卖信息详情</span>
+			</div>
+			<div class="detail_content">
+				<div class="detail_title">
+					<h1>【Java基础+项目实战+面试技巧】培训</h1>
+					<span>更新时间: 2015-07-05 09:00</span>
+				</div>
+				<div class="detail_n">
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;美联科技教育秉承的是一种高强度、高深度的课程训练法，高深度的课程单凭学员自己琢磨来做项目的话没有一到两年时间是不可能达到的，美联科技教育的做法是由教师带领学员
+						手把手的写代码，每一个字母、每一行程序都是由老师敲完一遍再指导学员敲第二遍，你将了解到整个项目的前后思路，并且将项目做到前所未有的深度，美联科技教育设有专门企业面试培训课程，培训学员面试技巧，帮助学员轻松找到理想工作。
+						丰富的多模式教学方法，先进的多媒体教学方式，以及独特的个性化学习，使学员在掌握理论知识与工具的同时，具备良好的自学能力和个人素质，从而具备更强的实际操作技能，在求职市场上，也更具竞争力。
+						美联科技教育王老师是资深互联网从业者，毕业于清华大学，后加入阿里巴巴和搜狐等知名互联网企业，参与了阿里云推荐团队的初创，曾负责和参与了云搜索，云推荐，展示广告等多款产品的设计研发和团队管理工作，项目经验丰富，讲课风趣幽默。</p>
+				</div>
+				<div class="detail_person">
+					<table>
+						<tr>
+							<td width="50%">联系人：无名氏</td>
+							<td width="50%">手机：13664320122</td>
+						</tr>
+						<tr>
+							<td>QQ:1234567890</td>
+							<td>E-mail:123456@163.com</td>
+						</tr>
+					</table>
+					<span>联系时请说在28卡上看到的</span>
+				</div>
+			</div>
 		</div>
-		<form class="left login_right" action="admin/success">
-			<ul>
-				<li>
-					<h1>管理员登陆</h1>
-				</li>
-				<li>Admin</li>
-				<li><input type="text" name="name" placeholder="请输入Admin帐号">
-				</li>
-				<li>Password</li>
-				<li><input type="password" name="password" placeholder="请输入密码">
-				</li>
-				<li>验证码</li>
-				<li><input type="text" placeholder="请输入验证码"
-					style="width: 160px;"> <img src="#"
-					style="width: 70px;height: 23px;vertical-align: middle;">
-				</li>
-				<li><input id="login_btn" type="submit" value="">
-					<div class="right" style="line-height: 32px;">
-						还没有账号？ <a href="register.html" style="color: #36c;">立即注册</a>
-					</div>
-				</li>
-			</ul>
-		</form>
 	</div>
 	<div class="foot_track">
 		<div class="center">

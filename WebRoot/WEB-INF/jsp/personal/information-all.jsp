@@ -32,7 +32,7 @@ $(document).ready(function() {
 		dataType : "json",
 		success : function(data) {
 			if (data.result == "true") {
-				window.location.href = "information/infoAll";
+				/* window.location.href = "information/infoAll"; */
 			} else {
 				window.location.href = "page/toLogin";
 			}
@@ -47,7 +47,7 @@ $(document).ready(function() {
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				您好, <a href="information.html">用户名</a> <a href="#"
+				您好, <a href="page/toInforPer">用户名</a> <a href="#"
 					style="color: #333;">退出</a>
 			</div>
 			<div class="right top_obtain top_index">
@@ -74,7 +74,7 @@ $(document).ready(function() {
 				</div>
 			</div>
 			<span class="right top1">|</span> <span class="right top2"> <a
-				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
+				href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
 				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
@@ -98,9 +98,9 @@ $(document).ready(function() {
 		<div class="information_left left">
 			<ul>
 				<li><h2>个人中心</h2></li>
-				<li><a href="user/toInforPer">基础信息</a></li>
-				<li><a href="user/toInforUp">修改信息</a></li>
-				<li><a href="user/toInforPas">密码修改</a></li>
+				<li><a href="page/toInforPer">基础信息</a></li>
+				<li><a href="page/toInforUp">修改信息</a></li>
+				<li><a href="page/toInforPas">密码修改</a></li>
 			</ul>
 			<ul>
 				<li><h2>我的订单</h2></li>

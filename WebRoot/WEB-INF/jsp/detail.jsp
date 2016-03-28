@@ -24,7 +24,22 @@
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 
 <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script type="text/javascript" src="resource/js/session.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type : "get",
+		url : "page/checkLogin",
+		dataType : "json",
+		success : function(data) {
+			if (data.result == "true") {
+				/* window.location.href = "page/toDetail"; */
+			} else {
+				window.location.href = "page/toLogin";
+			}
+		}
+	});
+});
+</script>
 
 </head>
 
@@ -32,8 +47,8 @@
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="login.jsp">请登录</a> - <a
-					href="user/toRegister">免费注册</a> </span>
+				欢迎来到28卡 <span> <a href="page/toLogin">请登录</a> - <a
+					href="page/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -59,7 +74,7 @@
 				</div>
 			</div>
 			<span class="right top1">|</span> <span class="right top2"> <a
-				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
+				href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
 				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>

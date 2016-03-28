@@ -58,6 +58,10 @@ public class PageAction extends ActionSupport {
 	public String toInforPass() throws Exception {
 		return "toInforPass";
 	}
+	
+	public String toAdminLogin() throws Exception {
+		return "toAdminLogin";
+	}
 
 	public String getResult() {
 		return result;

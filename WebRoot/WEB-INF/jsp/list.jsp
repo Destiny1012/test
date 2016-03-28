@@ -34,7 +34,7 @@ $(document).ready(function() {
 		dataType : "json",
 		success : function(data) {
 			if (data.result == "true") {
-				window.location.href = "information/getList";
+				/* window.location.href = "information/list"; */
 			} else {
 				window.location.href = "page/toLogin";
 			}

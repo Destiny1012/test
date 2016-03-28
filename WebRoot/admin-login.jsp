@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>information-password</title>
+<title>admin-login</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -20,10 +20,10 @@
 <meta http-equiv="description" content="This is my page">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="resource/css/information.css">
+<link rel="stylesheet" type="text/css" href="resource/css/login.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 
-<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript" src=""></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$.ajax({
@@ -32,9 +32,9 @@ $(document).ready(function() {
 		dataType : "json",
 		success : function(data) {
 			if (data.result == "true") {
-				/* window.location.href = "page/toInforPas"; */
+				
 			} else {
-				window.location.href = "page/toLogin";
+				window.location.href = "page/toAdminLogin";
 			}
 		}
 	});
@@ -47,8 +47,8 @@ $(document).ready(function() {
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				您好, <a href="page/toInforPer">用户名</a> <a href="#"
-					style="color: #333;">退出</a>
+				欢迎来到28卡 <span> <a href="admin-login.jsp">请登录</a> - <a
+					href="user/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -74,13 +74,13 @@ $(document).ready(function() {
 				</div>
 			</div>
 			<span class="right top1">|</span> <span class="right top2"> <a
-				href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
+				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
 				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
 	<div class="center logo">
 		<div class="left">
-			<a href="index.jsp"> <img src="resource/image/logo.gif"> </a>
+			<a href="#"> <img src="resource/image/logo.gif"> </a>
 		</div>
 		<div class="right search">
 			<div class="search_box">
@@ -93,47 +93,44 @@ $(document).ready(function() {
 			</div>
 		</div>
 	</div>
-	<div style="border: 1px solid #dfdfdf;clear: both;"></div>
+	<div class="navigation">
+		<div class="center part">
+			<ul>
+				<li><a class="menu_on" href="index.jsp">首页</a></li>
+				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
+					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
+				<li id="part_img"><a href="user/toList"> <img
+						src="resource/image/search.png"> </a></li>
+			</ul>
+		</div>
+	</div>
 	<div class="center">
-		<div class="information_left left">
-			<ul>
-				<li><h2>个人中心</h2></li>
-				<li><a href="page/toInforPer">基础信息</a></li>
-				<li><a href="page/toInforUp">修改信息</a></li>
-				<li><a href="page/toInforPas" class="check">密码修改</a></li>
-			</ul>
-			<ul>
-				<li><h2>我的订单</h2></li>
-				<li><a href="information/infoOrd">全部订单</a></li>
-				<li><a href="information/infoHan">已购买订单</a></li>
-				<li><a href="information/infoUnh">待处理订单</a></li>
-			</ul>
+		<div class="left login_left">
+			<img src="resource/image/0.png">
+		</div>
+		<form class="left login_right" action="admin/loginAdmin">
 			<ul>
 				<li>
-					<h2>我的发布</h2></li>
-				<li><a href="information/infoAll">全部发布</a></li>
-				<li><a href="information/infoRel">已发布订单</a></li>
-				<li><a href="information/infoAud">待审核订单</a></li>
+					<h1>管理员登陆</h1>
+				</li>
+				<li>Admin</li>
+				<li><input type="text" name="name" placeholder="请输入Admin帐号">
+				</li>
+				<li>Password</li>
+				<li><input type="password" name="password" placeholder="请输入密码">
+				</li>
+				<li>验证码</li>
+				<li><input type="text" placeholder="请输入验证码"
+					style="width: 160px;"> <img src="#"
+					style="width: 70px;height: 23px;vertical-align: middle;">
+				</li>
+				<li><input id="login_btn" type="submit" value="">
+					<div class="right" style="line-height: 32px;">
+						还没有账号？ <a href="register.html" style="color: #36c;">立即注册</a>
+					</div>
+				</li>
 			</ul>
-		</div>
-		<div class="information_right right">
-			<div class="information">
-				<div class="information_title">*密码修改</div>
-				<div class="information_top">
-					<span>用户名</span>
-				</div>
-				<div class="information_list">
-					<ul>
-						<li><label>是否给123****4567发送信息进行验证</label></li>
-						<li><input type="submit" value="发送"
-							style="margin-left: 80px;width: 60px;"></li>
-						<li><span>验证码：</span> <input type="text" style="width: 60px;"></li>
-						<li><input onclick="user/toInforPass" type="submit" value="下一步"
-							style="margin-left: 80px;width: 60px;"></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		</form>
 	</div>
 	<div class="foot_track">
 		<div class="center">

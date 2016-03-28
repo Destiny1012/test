@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.admin.service.IAdminService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 @Controller
@@ -22,6 +23,7 @@ public class AdminAction extends ActionSupport {
 	
 	public String loginAdmin() throws Exception {
 		if(adminService.loginAdmin(name, password) == true){
+			ActionContext.getContext().getSession().put("name", name);
 			return "success";
 		}else{
 			return "fail";

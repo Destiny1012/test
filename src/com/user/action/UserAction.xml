@@ -11,7 +11,7 @@
 			<result name="get" type="json"></result>
 			<result name="execute" type="json"></result>
 			<result name="getAll" type="json"></result>
-			<result name="admin">/admin-manage.jsp</result>
+			<result name="admin">/WEB-INF/jsp/admin/admin-manage.jsp</result>
 			<result name="success">/WEB-INF/jsp/personal/information-person.jsp</result>
 			<result name="fail">/index.jsp</result>
 		</action>
