@@ -74,7 +74,7 @@ $(document).ready(function() {
 				</div>
 			</div>
 			<span class="right top1">|</span> <span class="right top2"> <a
-				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
+				href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
 				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>

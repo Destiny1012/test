@@ -23,7 +23,14 @@
 <link rel="stylesheet" type="text/css" href="resource/css/admin.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#btn").click(function(){
+		$("#zt").text("1");
+	});
+});
+</script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$.ajax({
@@ -85,15 +92,15 @@ $(document).ready(function() {
 					<table rules="all">
 						<thead>
 							<tr>
-								<td width="45%">标题</td>
+								<td width="40%">标题</td>
 								<td width="10%">用户名</td>
 								<td width="5%">归属地</td>
 								<td width="5%">号段</td>
 								<td width="5%">号卡数量</td>
 								<td width="5%">机器数量</td>
-								<td width="10">工作时间</td>
-								<td width="10">发布时间</td>
+								<td width="20">发布时间</td>
 								<td width="5%">状态</td>
+								<td width="5%">审核</td>
 							</tr>
 						</thead>
 						<tbody>
@@ -118,13 +125,13 @@ $(document).ready(function() {
 										<s:property value="#information.jqsl" />
 									</td>
 									<td>
-										<s:property value="#information.gzsj" />
-									</td>
-									<td>
 										<s:property value="#information.fbsj" />
 									</td>
-									<td>
+									<td id="zt">
 										<s:property value="#information.zt" />
+									</td>
+									<td id="btn">
+										<button>审核</button>
 									</td>
 								</tr>
 							</s:iterator>

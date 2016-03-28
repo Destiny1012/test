@@ -10,13 +10,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 @Controller
 @Scope("prototype")
+@SuppressWarnings("rawtypes")
 public class PageAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
 	private String result;
 
-	@SuppressWarnings("rawtypes")
 	public String checkLogin() {
 		Map session = ActionContext.getContext().getSession();
 		if (session.get("email") != null) {
@@ -25,6 +25,16 @@ public class PageAction extends ActionSupport {
 			result = "false";
 		}
 		return "checkLogin";
+	}
+	
+	public String adminLogin() {
+		Map session = ActionContext.getContext().getSession();
+		if (session.get("name") != null) {
+			result = "true";
+		}else {
+			result = "false";
+		}
+		return "adminLogin";
 	}
 	
 	public String toLogin() throws Exception {
