@@ -13,6 +13,7 @@ import com.information.domain.Information;
 
 @Repository
 @Transactional
+@SuppressWarnings("unchecked")
 public class InformationDao implements IInformationDao {
 
 	@Resource
@@ -35,7 +36,6 @@ public class InformationDao implements IInformationDao {
 		return (Information) getSession().get(Information.class, id);
 	}
 	
-	@SuppressWarnings("unchecked")
 	public List<Information> getAll() {
 		return getSession().createCriteria(Information.class).list();
 	}
@@ -44,7 +44,6 @@ public class InformationDao implements IInformationDao {
 		return Integer.parseInt(getSession().createSQLQuery("select count(*) from informations").uniqueResult().toString());
 	}
 	
-	@SuppressWarnings("unchecked")
 	public List<Information> queryInformation(int currentPage, int pageSize) {
 		int startRow = (currentPage - 1) * pageSize;
 		return getSession().createQuery("from Information").setFirstResult(startRow).setMaxResults(pageSize).list();

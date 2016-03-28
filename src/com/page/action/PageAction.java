@@ -72,6 +72,10 @@ public class PageAction extends ActionSupport {
 	public String toAdminLogin() throws Exception {
 		return "toAdminLogin";
 	}
+	
+	public String toAdminDetail() throws Exception {
+		return "toAdminDetail";
+	}
 
 	public String getResult() {
 		return result;

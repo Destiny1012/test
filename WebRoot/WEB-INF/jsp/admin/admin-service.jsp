@@ -23,12 +23,12 @@
 <link rel="stylesheet" type="text/css" href="resource/css/login.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$.ajax({
 		type : "get",
-		url : "page/checkLogin",
+		url : "page/adminLogin",
 		dataType : "json",
 		success : function(data) {
 			if (data.result == "true") {

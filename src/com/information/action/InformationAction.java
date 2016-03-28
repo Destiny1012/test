@@ -14,6 +14,7 @@ import com.information.domain.Information;
 import com.information.service.IInformationService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.user.domain.User;
 
 @Controller
 @Scope("prototype")
@@ -33,6 +34,7 @@ public class InformationAction extends ActionSupport {
 	private String gzsj;
 	private String fbsj;
 	private String nr;
+	private User user;
 	private List<Information> list;
 	private int pageSize = 10;
 	private int currentPage;
@@ -40,6 +42,8 @@ public class InformationAction extends ActionSupport {
 	private int totalPage;
 	private String pageBar;
 	private String result;
+
+	private Information info;
 
 	public String save() throws Exception {
 		Map session = ActionContext.getContext().getSession();
@@ -54,6 +58,8 @@ public class InformationAction extends ActionSupport {
 			information.setGzsj(gzsj);
 			information.setFbsj(time.format(new Date()));
 			information.setNr(nr);
+			information.setZt("0");
+			information.setUser(user);
 			informationService.save(information);
 			result = "success";
 		} else {
@@ -64,10 +70,10 @@ public class InformationAction extends ActionSupport {
 
 	public String delete() throws Exception {
 		Map session = ActionContext.getContext().getSession();
-		if(session.get("email") != null){
+		if (session.get("email") != null) {
 			informationService.delete(id);
 			result = "success";
-		}else{
+		} else {
 			result = "fail";
 		}
 		return "delete";
@@ -75,7 +81,7 @@ public class InformationAction extends ActionSupport {
 
 	public String update() throws Exception {
 		Map session = ActionContext.getContext().getSession();
-		if(session.get("email") != null){
+		if (session.get("email") != null) {
 			Information information = informationService.get(id);
 			information.setBt(bt);
 			information.setGsd(gsd);
@@ -85,20 +91,34 @@ public class InformationAction extends ActionSupport {
 			information.setGzsj(gzsj);
 			information.setFbsj(fbsj);
 			information.setNr(nr);
+			information.setZt("0");
 			informationService.update(information);
 			result = "success";
-		}else{
+		} else {
 			result = "fail";
 		}
 		return "update";
 	}
 
+	public String infoHandle() throws Exception {
+		Map session = ActionContext.getContext().getSession();
+		if (session.get("name") != null) {
+			Information information = informationService.get(id);
+			information.setZt("1");
+			informationService.update(information);
+			result = "success";
+		} else {
+			result = "fail";
+		}
+		return "infoHandle";
+	}
+
 	public String get() throws Exception {
 		Map session = ActionContext.getContext().getSession();
-		if(session.get("email") != null){
-			informationService.get(id);
+		if (session.get("email") != null) {
+			info = informationService.get(id);
 			result = "success";
-		}else{
+		} else {
 			result = "fail";
 		}
 		return "get";
@@ -106,18 +126,29 @@ public class InformationAction extends ActionSupport {
 
 	public String getAll() throws Exception {
 		Map session = ActionContext.getContext().getSession();
-		if(session.get("email") != null){
+		if (session.get("email") != null) {
 			list = informationService.getAll();
 			result = "success";
-		}else{
+		} else {
 			result = "fail";
 		}
 		return "getAll";
 	}
 
+	public String listDetail() throws Exception {
+		Map session = ActionContext.getContext().getSession();
+		if (session.get("email") != null) {
+			info = informationService.get(id);
+			result = "success";
+		} else {
+			result = "fail";
+		}
+		return "listDetail";
+	}
+
 	public String list() throws Exception {
 		Map session = ActionContext.getContext().getSession();
-		if(session.get("email") != null){
+		if (session.get("email") != null) {
 			if (currentPage == 0) {
 				currentPage = 1;
 			}
@@ -147,7 +178,7 @@ public class InformationAction extends ActionSupport {
 			list = informationService.getList(currentPage, pageSize);
 			System.out.println(totalSize);
 			result = "success";
-		}else{
+		} else {
 			result = "fail";
 		}
 		return "list";
@@ -496,6 +527,22 @@ public class InformationAction extends ActionSupport {
 
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+	public Information getInfo() {
+		return info;
+	}
+
+	public void setInfo(Information info) {
+		this.info = info;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

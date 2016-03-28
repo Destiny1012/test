@@ -24,18 +24,18 @@
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 
 <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function() {
 	$("#btn").click(function(){
 		$("#zt").text("1");
 	});
 });
-</script>
+</script> -->
 <script type="text/javascript">
 $(document).ready(function() {
 	$.ajax({
 		type : "get",
-		url : "page/checkLogin",
+		url : "page/adminLogin",
 		dataType : "json",
 		success : function(data) {
 			if (data.result == "true") {
@@ -92,14 +92,14 @@ $(document).ready(function() {
 					<table rules="all">
 						<thead>
 							<tr>
-								<td width="40%">标题</td>
+								<td width="35%">标题</td>
 								<td width="10%">用户名</td>
 								<td width="5%">归属地</td>
 								<td width="5%">号段</td>
 								<td width="5%">号卡数量</td>
 								<td width="5%">机器数量</td>
 								<td width="20">发布时间</td>
-								<td width="5%">状态</td>
+								<td width="10%">状态</td>
 								<td width="5%">审核</td>
 							</tr>
 						</thead>
@@ -127,11 +127,14 @@ $(document).ready(function() {
 									<td>
 										<s:property value="#information.fbsj" />
 									</td>
-									<td id="zt">
-										<s:property value="#information.zt" />
+									<td>
+										<s:if test="#information.zt == 0">未审核</s:if>
+										<s:else>已审核</s:else>
 									</td>
 									<td id="btn">
-										<button>审核</button>
+										<a href="page/toAdminDetail">
+											<button type="button">处理</button>
+										</a>
 									</td>
 								</tr>
 							</s:iterator>

@@ -28,7 +28,7 @@
 $(document).ready(function() {
 	$.ajax({
 		type : "get",
-		url : "page/checkLogin",
+		url : "page/adminLogin",
 		dataType : "json",
 		success : function(data) {
 			if (data.result == "true") {

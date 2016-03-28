@@ -127,10 +127,9 @@ $(document).ready(function() {
 						<span>工作时间：</span><input type="text" name="gzsj">
 					</div>
 					<br>
-					<textarea id="editor_id" name="content" style="width:700px;height:300px;">
-						&lt;strong&gt;HTML内容&lt;/strong&gt;
-					</textarea>
+					<textarea name="nr" rows="10" cols="30" wrap="hard"></textarea>
 				</div>
+				<input type="submit" value="发布">
 			</form>
 		</div>
 	</div>

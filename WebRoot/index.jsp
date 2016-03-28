@@ -80,8 +80,8 @@
 		<div class="center part">
 			<ul>
 				<li><a class="menu_on" href="index.jsp">首页</a></li>
-				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
-					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a>
+				<li><a href="page/toRegister">免费注册</a> <a href="#">使用教程</a> <a
+					href="#">联系我们</a> <a href="#">企业资质</a> <a href="page/toRelease">我要发布</a>
 				</li>
 				<li id="part_img"><a href="information/list"> <img
 						src="resource/image/search.png"> </a></li>
@@ -109,8 +109,8 @@
 		</div>
 		<div class="list_btn">
 			<div class="title_btn">
-				<a class="a1" href="user/toRegister"></a> <a class="a2"
-					href="user/toLogin"></a> <a class="a3" href="#"></a>
+				<a class="a1" href="page/toRegister"></a> <a class="a2"
+					href="page/toLogin"></a> <a class="a3" href="#"></a>
 			</div>
 			<form class="form_btn">
 				<ul>

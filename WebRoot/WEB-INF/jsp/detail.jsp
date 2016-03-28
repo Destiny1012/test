@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -110,8 +110,9 @@ $(document).ready(function() {
 				<span>买卖信息详情</span>
 			</div>
 			<div class="detail_content">
+			<s:iterator value="list" var="information" status="st">
 				<div class="detail_title">
-					<h1>【Java基础+项目实战+面试技巧】培训</h1>
+					<h1><s:property value="#information.bt" /></h1>
 					<span>更新时间: 2015-07-05 09:00</span>
 				</div>
 				<div class="detail_n">
@@ -133,6 +134,7 @@ $(document).ready(function() {
 					</table>
 					<span>联系时请说在28卡上看到的</span>
 				</div>
+			</s:iterator>
 			</div>
 		</div>
 	</div>

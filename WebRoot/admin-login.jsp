@@ -99,7 +99,7 @@ $(document).ready(function() {
 				<li><a class="menu_on" href="index.jsp">首页</a></li>
 				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
 					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
-				<li id="part_img"><a href="user/toList"> <img
+				<li id="part_img"><a href="information/list"> <img
 						src="resource/image/search.png"> </a></li>
 			</ul>
 		</div>
