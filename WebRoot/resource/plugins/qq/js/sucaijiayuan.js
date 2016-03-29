@@ -1,28 +1,28 @@
 /* =================================================
 //
 // jQuery Fixed Plugins 1.3.1
-// author : ËØ²Ä¼ÒÔ°
+// author : ï¿½Ø²Ä¼ï¿½Ô°
 // Url: www.sucaijiayuan.com
 // Data : 2012-03-30
 //
-// ²ÎÊý : float --> Ðü¸¡·½Ïò[left or right]
-//		  minStatue --> ×îÐ¡×´Ì¬£¬Ö»ÓÐshow_btn
-//		  skin      --> Æ¤·ô¿ØÖÆ
-//		  durationTime --> Íê³ÉÊ±¼ä
-//ÊÂÀý  :	
+// ï¿½ï¿½ï¿½ï¿½ : float --> ï¿½ï¿½ï¿½ï¿½[left or right]
+//		  minStatue --> ï¿½ï¿½Ð¡×´Ì¬ï¿½ï¿½Ö»ï¿½ï¿½show_btn
+//		  skin      --> Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		  durationTime --> ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½  :	
   $("#scrollsidebar2").fix({
 	float : 'right',	//default.left or right 
 	minStatue : true,	//default.false or true 
-	skin : 'green',		//default.gray or yellow ¡¢blue ¡¢green ¡¢orange ¡¢white 
+	skin : 'green',		//default.gray or yellow ï¿½ï¿½blue ï¿½ï¿½green ï¿½ï¿½orange ï¿½ï¿½white 
 	durationTime : 1000 //
   });
 //
 // =================================================*/
 
-;(function($){
+(function($){
     $.fn.fix = function(options){
         var defaults = {
-            float : 'left',
+            float : 'right',
 			minStatue : false,
 			skin : 'blue',
 			durationTime : 1000	
@@ -30,14 +30,14 @@
         var options = $.extend(defaults, options);		
 
         this.each(function(){			
-            //»ñÈ¡¶ÔÏó
+            //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 			var thisBox = $(this),
 				closeBtn = thisBox.find('.close_btn' ),
 				show_btn = thisBox.find('.show_btn' ),
 				sideContent = thisBox.find('.side_content'),
 				sideList = thisBox.find('.side_list')
 				;	
-			var defaultTop = thisBox.offset().top;	//¶ÔÏóµÄÄ¬ÈÏtop	
+			var defaultTop = thisBox.offset().top;	//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½top	
 			
 			thisBox.css(options.float, 0);			
 			if(options.minStatue){
@@ -46,11 +46,11 @@
 				show_btn.css('width', 25);
 				
 			}
-			//Æ¤·ô¿ØÖÆ
+			//Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(options.skin) thisBox.addClass('side_'+options.skin);
 				
 						
-			//ºËÐÄscrollÊÂ¼þ			
+			//ï¿½ï¿½ï¿½ï¿½scrollï¿½Â¼ï¿½			
 			$(window).bind("scroll",function(){
 				var offsetTop = defaultTop + $(window).scrollTop() + "px";
 	            thisBox.animate({
@@ -58,15 +58,15 @@
 	            },
 	            {
 	                duration: options.durationTime,	
-	                queue: false    //´Ë¶¯»­½«²»½øÈë¶¯»­¶ÓÁÐ
+	                queue: false    //ï¿½Ë¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¶¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	            });
 			});	
-			//closeÊÂ¼þ
+			//closeï¿½Â¼ï¿½
 			closeBtn.bind("click",function(){
 				sideContent.animate({width: '0px'},"fast");
             	show_btn.stop(true, true).delay(300).animate({ width: '25px'},"fast");
 			});
-			//showÊÂ¼þ
+			//showï¿½Â¼ï¿½
 			 show_btn.click(function() {
 	            $(this).animate({width: '0px'},"fast");
 	            sideContent.stop(true, true).delay(200).animate({ width: '154px'},"fast");

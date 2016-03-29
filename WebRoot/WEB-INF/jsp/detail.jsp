@@ -22,23 +22,46 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/detail.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
+<link href="resource/plugins/qq/css/sucaijiayuan.css" type="text/css" rel="stylesheet">
 
-<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script src="resource/plugins/qq/js/sucaijiayuan.js" type="text/javascript"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	$.ajax({
-		type : "get",
-		url : "page/checkLogin",
-		dataType : "json",
-		success : function(data) {
-			if (data.result == "true") {
-				/* window.location.href = "page/toDetail"; */
-			} else {
-				window.location.href = "page/toLogin";
+	$(document).ready(function() {
+		$.ajax({
+			type : "get",
+			url : "page/checkLogin",
+			dataType : "json",
+			success : function(data) {
+				if (data.result == "true") {
+					/* window.location.href = "page/toDetail"; */
+				} else {
+					window.location.href = "page/toLogin";
+				}
 			}
-		}
+		});
 	});
-});
+</script>
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script type="text/javascript" src="resource/plugins/kindeditor/kindeditor-all-min.js"></script>
+<script type="text/javascript" src="resource/plugins/code/vCode.js"></script>
+<script type="text/javascript">
+	//document.domain = 'domain.com';
+	KindEditor.ready(function(K) {
+		window.editor = K.create('textarea', {
+			allowFileManager : false,
+			langType : 'zh-CN',
+			autoHeightMode : true,
+			items : [ 'formatblock', 'fontname', 'fontsize', '|', 'forecolor',
+					'hilitecolor', 'bold', 'italic', 'underline',
+					'strikethrough', 'removeformat', 'emoticons' ]
+		});
+
+	});
+
+	function reImg() {
+		var img = document.getElementById("Img");
+		img.src = "Img?rnd=" + Math.random();
+	}
 </script>
 
 </head>
@@ -98,7 +121,8 @@ $(document).ready(function() {
 			<ul>
 				<li><a href="index.jsp">首页</a></li>
 				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
-					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
+					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a>
+				</li>
 				<li id="part_img"><a href="user/toList"> <img
 						src="resource/image/search.png"> </a></li>
 			</ul>
@@ -133,6 +157,12 @@ $(document).ready(function() {
 			</div>
 		</div>
 	</div>
+	<div class="center">
+		<div class="">
+			<textarea name="editor1" cols="100" rows="20"
+				style="width:800px;height:200px;"></textarea>
+		</div>
+	</div>
 	<div class="foot_track">
 		<div class="center">
 			<ul>
@@ -162,5 +192,52 @@ $(document).ready(function() {
 				style="color: #ff0000;" class="hs">自动发卡平台</a>
 		</div>
 	</div>
+	<!-- 代码 开始 -->
+	<div class="scrollsidebar" id="scrollsidebar">
+		<div class="side_content">
+			<div class="side_list">
+				<div class="side_title">
+					<a title="隐藏" class="close_btn"><span>关闭</span> </a>
+				</div>
+				<div class="side_center">
+					<div class="custom_service">
+						<p>
+							<a title="点击这里给我发消息"
+								href="http://wpa.qq.com/msgrd?v=3&amp;uin=729670773&amp;site=www.cactussoft.cn&amp;menu=yes"
+								target="_blank"><img
+								src="http://wpa.qq.com/pa?p=2:729670773:41"> </a>
+						</p>
+					</div>
+					<div class="other">
+						<p>
+							<img src="resources/plugins/qq/images/qrcode.jpg" />
+						</p>
+						<p>客户服务热线</p>
+						<p>130-0000-0000</p>
+					</div>
+					<div class="msgserver">
+						<p>
+							<a href="http://www.sucaijiayuan.com">给我们留言</a>
+						</p>
+					</div>
+				</div>
+				<div class="side_bottom"></div>
+			</div>
+		</div>
+		<div class="show_btn">
+			<span>在线客服</span>
+		</div>
+	</div>
+	<!-- 代码 结束 -->
+	<script type="text/javascript">
+		$(function() {
+			$("#scrollsidebar").fix({
+				float : 'right', //default.left or right
+				//minStatue : true,
+				skin : 'blue', //green or blue
+				durationTime : 600
+			});
+		});
+	</script>
 </body>
 </html>

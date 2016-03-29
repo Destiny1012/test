@@ -1,8 +1,9 @@
 @CHARSET "UTF-8";
 .detail{
+	margin: 10px;
     float: left;
     border: 1px solid #dfdfdf;
-    border-bottom: 0;
+    /* border-bottom: 0; */
 }
 .detail_top{
     background: url("../image/dhbj.png") repeat-x;

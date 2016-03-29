@@ -106,6 +106,33 @@ public class InformationAction extends ActionSupport {
 			Information information = informationService.get(id);
 			information.setZt("1");
 			informationService.update(information);
+			if (currentPage == 0) {
+				currentPage = 1;
+			}
+			totalSize = informationService.getCount();
+			int mod = totalSize % pageSize;
+			if (mod == 0) {
+				totalPage = totalSize / pageSize;
+			} else {
+				totalPage = totalSize / pageSize + 1;
+			}
+			pageBar = "<nav>";
+			pageBar += "<ul class='list_m'>";
+			pageBar += "<li><a href='information/list?currentPage=1'>首页</a></li>";
+			for (int i = 1; i <= totalPage; i++) {
+				if (i == currentPage) {
+					pageBar += "<li class='active'><a href='information/list?currentPage="
+							+ i + "'>" + i + "</a></li>";
+				} else {
+					pageBar += "<li><a href='information/list?currentPage=" + i
+							+ "'>" + i + "</a></li>";
+				}
+			}
+			pageBar += "<li><a href='information/list?currentPage=" + totalPage
+					+ "'>尾页</a></li>";
+			pageBar += "</ul>";
+			pageBar += "</nav>";
+			list = informationService.getList(currentPage, pageSize);
 			result = "success";
 		} else {
 			result = "fail";

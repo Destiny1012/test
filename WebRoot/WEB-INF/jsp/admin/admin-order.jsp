@@ -106,7 +106,7 @@ $(document).ready(function() {
 							<s:iterator value="list" var="information" status="st">
 								<tr>
 									<td>
-										<a href=""><s:property value="#information.bt" /></a>
+										<a href="information/detailAdmin?id=${information.id }"><s:property value="#information.bt" /></a>
 									</td>
 									<td>
 										<s:property value="#information.belongUser" />
