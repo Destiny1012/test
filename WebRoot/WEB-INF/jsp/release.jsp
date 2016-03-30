@@ -48,7 +48,7 @@ $(document).ready(function() {
 		<div class="top_box">
 			<div class="login">
 				欢迎来到28卡 <span> <a href="login.jsp">请登录</a> - <a
-					href="user/toRegister">免费注册</a> </span>
+					href="page/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -74,7 +74,7 @@ $(document).ready(function() {
 				</div>
 			</div>
 			<span class="right top1">|</span> <span class="right top2"> <a
-				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
+				href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
 				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
@@ -97,9 +97,9 @@ $(document).ready(function() {
 		<div class="center part">
 			<ul>
 				<li><a class="menu_on" href="index.jsp">首页</a></li>
-				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
+				<li><a href="page/toRegister">免费注册</a> <a href="#">使用教程</a> <a
 					href="#">联系我们</a> <a href="user/toList">企业资质</a> <a
-					href="user/toRelease">我要发布</a></li>
+					href="page/toRelease">我要发布</a></li>
 				<li id="part_img"><a href="#"> <img
 						src="resource/image/search.png"> </a></li>
 			</ul>

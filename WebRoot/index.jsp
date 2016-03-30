@@ -21,10 +21,27 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/index.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-<link href="resource/plugins/qq/css/sucaijiayuan.css" type="text/css" rel="stylesheet"><link>
+<link href="resource/plugins/qq/css/sucaijiayuan.css" type="text/css"
+	rel="stylesheet">
 <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script src="resource/plugins/qq/js/sucaijiayuan.js" type="text/javascript"></script>
-<script type="text/javascript"></script>
+<script src="resource/plugins/qq/js/sucaijiayuan.js"
+	type="text/javascript"></script>
+<script type="text/javascript" src="resource/plugins/code/vCode.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		var container2 = document.getElementById("vCode2");
+		var code2 = new vCode(container2, {
+			len : 4,
+			bgColor : "#444444",
+			colors : [ "#DDDDDD", "#DDFF77", "#77DDFF", "#99BBFF",
+			//"#7700BB",
+			"#EEEE00" ]
+		});
+		document.getElementById("btn2").addEventListener("click", function() {
+			alert(code2.verify(document.getElementById("code2").value));
+		}, false);
+	};
+</script>
 </head>
 
 <body>
@@ -58,8 +75,8 @@
 				</div>
 			</div>
 			<span class="right top1">|</span> <span id="try" class="right top2">
-				<a href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
-				class="right top3"> <a href="index.jsp">首页</a> </span>
+				<a href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span>
+			<span class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
 	<div class="center logo">
@@ -113,15 +130,17 @@
 				<a class="a1" href="page/toRegister"></a> <a class="a2"
 					href="page/toLogin"></a> <a class="a3" href="#"></a>
 			</div>
-			<form class="form_btn">
+			<form class="form_btn" action="user/loginUser">
 				<ul>
 					<li><input type="text" name="email" placeholder="请输入用户名/Email">
 					</li>
 					<li><input type="password" name="password"
 						placeholder="请输入登陆密码"></li>
 					<li><input type="text" placeholder="请输入验证码"
-						style="width: 160px;"> <img src="#"
-						style="vertical-align: middle; width: 70px; height: 23px;">
+						style="width: 120px;"> <!-- <img src="#"
+						style="vertical-align: middle; width: 70px; height: 23px;"> -->
+						<div id="vCode2"
+							style="vertical-align: middle; width:100px; height: 30px; line-height:30px;border: 1px solid #ccc; display: inline-block;"></div>
 					</li>
 					<li><input type="image" src="resource/image/login_1.png"
 						style="float: left; margin-top: 5px; width: 120px; height: 37px; box-shadow: none; border: none;">

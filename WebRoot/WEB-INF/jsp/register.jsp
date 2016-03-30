@@ -22,6 +22,90 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/register.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
+<link href="resource/plugins/qq/css/sucaijiayuan.css" type="text/css"
+	rel="stylesheet">
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script src="resource/plugins/qq/js/sucaijiayuan.js"
+	type="text/javascript"></script>
+<script type="text/javascript" src="resource/plugins/code/vCode.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		var container2 = document.getElementById("vCode2");
+		var code2 = new vCode(container2, {
+			len : 4,
+			bgColor : "#444444",
+			colors : [ "#DDDDDD", "#DDFF77", "#77DDFF", "#99BBFF",
+			//"#7700BB",
+			"#EEEE00" ]
+		});
+		document.getElementById("btn2").addEventListener("click", function() {
+			alert(code2.verify(document.getElementById("code2").value));
+		}, false);
+	};
+</script>
+<script type="text/javascript">
+   /* function checkna(){
+        na=register.name.value;
+        if( na.length < 1 || na.length > 12){
+            divname.innerHTML='<font class="tips_false">长度是1~12个字符</font>';
+        }else{
+            divname.innerHTML='<font class="tips_true">输入正确</font>';
+        };
+ 	} */
+  //验证密码 
+    function checkpsd1(){
+        psd1=register.password.value;
+        var flagZM = false;
+        var flagSZ = false;
+        var flagQT = false;
+        if(psd1.length<6 || psd1.length>12){
+            divpassword1.innerHTML='<font class="tips_false">长度错误</font>';
+        }else{
+              for(var i=0;i < psd1.length;i++){
+                    if((psd1.charAt(i) >= 'A' && psd1.charAt(i)<='Z') || (psd1.charAt(i)>='a' && psd1.charAt(i)<='z')){
+                        flagZM = true;
+                    }else if(psd1.charAt(i)>='0' && psd1.charAt(i)<='9'){
+                        flagSZ = true;
+                    }else{
+                        flagQT = true;
+                    };
+                }
+                if(!flagZM || !flagSZ || flagQT){
+                	divpassword1.innerHTML='<font class="tips_false">密码必须是字母数字的组合</font>';
+                }else{
+                	divpassword1.innerHTML='<font class="tips_true">输入正确</font>';
+                };
+            };
+    }
+    //验证确认密码 
+    function checkpsd2(){
+            if(register.password.value != register.password1.value){
+            	divpassword2.innerHTML='<font class="tips_false">您两次输入的密码不一样</font>';
+            }else{
+				divpassword2.innerHTML='<font class="tips_true">输入正确</font>';
+            }
+    }
+    //验证邮箱
+    function checkmail(){
+    	apos = register.email.value.indexOf("@");
+        dotpos = register.email.value.lastIndexOf(".");
+        if (apos < 1 || dotpos-apos < 2){
+        	divmail.innerHTML='<font class="tips_false">请输入正确邮箱</font>';
+        }else{
+            divmail.innerHTML='<font class="tips_true">输入正确</font>';
+        }
+    }
+    //验证手机
+    function checktel(){
+    	phone = register.tel.valu;
+    	tels = /^1[3|4|5|7|8]\d{9}$/；
+    	if (!tels.test(phone)){
+    		divtel.innerHTML='<font class="tips_true">输入正确</font>';
+    	}else{
+    		divtel.innerHTML='<font class="tips_false">请输入正确手机号</font>'
+    	}
+    }
+</script>
 
 </head>
 
@@ -29,8 +113,8 @@
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="login.jsp">请登录</a> - <a
-					href="user/toRegister">免费注册</a> </span>
+				欢迎来到28卡 <span> <a href="page/toLogin">请登录</a> - <a
+					href="page/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -56,7 +140,7 @@
 				</div>
 			</div>
 			<span class="right top1">|</span> <span class="right top2"> <a
-				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
+				href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
 				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
@@ -80,8 +164,9 @@
 			<ul>
 				<li><a class="menu_on" href="index.jsp">首页</a>
 				</li>
-				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
-					href="#">联系我们</a> <a href="user/toList">企业资质</a> <a href="user/toRelease">我要发布</a>
+				<li><a href="page/toRegister">免费注册</a> <a href="#">使用教程</a> <a
+					href="#">联系我们</a> <a href="user/toList">企业资质</a> <a
+					href="page/toRelease">我要发布</a>
 				</li>
 				<li id="part_img"><a href="#"> <img
 						src="resource/image/search.png"> </a>
@@ -102,26 +187,37 @@
 					</div>
 				</div>
 				<div class="nav_content">
-					<form action="user/save" method="post">
+					<form name="register" action="user/save" method="post">
 						<ul>
-							<li><label>登陆Email：</label> <input type="text" name="email"
-								placeholder="请输入Email">
+							<li>
+								<label>登陆Email：</label>
+								<input type="text" name="email" placeholder="请输入Email" onblur="checkmail()" required>
+								<span class="tips" id="divmail"></span>
 							</li>
-							<li><label>密码：</label> <input type="password"
-								name="password" placeholder="请输入密码">
+							<li>
+								<label>密码：</label>
+								<input type="password" name="password" placeholder="请输入密码" maxlength="8" onblur="checkpsd1()" required>
+								<span class="tips" id="divpassword1">密码必须由字母和数字组成</span>
 							</li>
-							<li><label>确认密码：</label> <input type="password"
-								placeholder="请确认密码">
+							<li>
+								<label>确认密码：</label>
+								<input type="password" name="password1" placeholder="请确认密码" maxlength="8" onkeyup="checkpsd2()" required>
+								<span class="tips" id="divpassword2">两次密码需要相同</span>
 							</li>
-							<li><label>手机：</label> <input type="text" name="tel"
-								placeholder="请输入手机">
+							<li>
+								<label>手机：</label>
+								<input type="text" name="tel" placeholder="请输入手机" maxlength="8" required>
+								<span class="tips" id="divtel">请输入中国大陆手机号</span>
 							</li>
-							<li><label>QQ：</label> <input type="text" name="qq"
-								placeholder="请输入QQ">
+							<li>
+								<label>QQ：</label>
+								<input type="text" name="qq" placeholder="请输入QQ" required>
 							</li>
-							<li><label>验证码：</label> <input type="text"
-								style="width: 100px;"> <img src="#"
-								style="width: 70px;height: 23px;vertical-align: middle;">
+							<li>
+								<label>验证码：</label>
+								<input type="text" style="width: 100px;" required>
+								<!-- <img src="#" style="width: 70px;height: 23px;vertical-align: middle;"> -->
+								<div id="vCode2" style="vertical-align: middle; width:100px; height: 30px; line-height:30px;border: 1px solid #ccc; display: inline-block;"></div>
 							</li>
 							<li style="padding-left: 135px;font-size: 12px;"><input
 								type="checkbox"
@@ -129,7 +225,7 @@
 								同意 <a href="#" style="color: #2864b4;">《用户协议》</a>
 								(甲方在本网站注册成功视为无条件接受本协议所有条款)</li>
 							<li style="padding-left: 135px;"><input type="submit"
-								value=""
+								value="" onclick="password()"
 								style="background: url('./resource/image/tyzc_1.png') no-repeat;width: 184px;cursor: pointer;">
 							</li>
 						</ul>

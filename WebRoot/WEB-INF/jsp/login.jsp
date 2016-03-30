@@ -22,15 +22,19 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/login.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-
+<link href="resource/plugins/qq/css/sucaijiayuan.css" type="text/css"
+	rel="stylesheet">
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script src="resource/plugins/qq/js/sucaijiayuan.js"
+	type="text/javascript"></script>
 </head>
 
 <body>
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="user/toLogin">请登录</a> - <a
-					href="user/toRegister">免费注册</a> </span>
+				欢迎来到28卡 <span> <a href="page/toLogin">请登录</a> - <a
+					href="page/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -56,7 +60,7 @@
 				</div>
 			</div>
 			<span class="right top1">|</span> <span class="right top2"> <a
-				href="user/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
+				href="page/toInforPer">个人中心</a> </span> <span class="right top1">|</span> <span
 				class="right top3"> <a href="index.jsp">首页</a> </span>
 		</div>
 	</div>
@@ -78,11 +82,14 @@
 	<div class="navigation">
 		<div class="center part">
 			<ul>
-				<li><a class="menu_on" href="index.jsp">首页</a></li>
-				<li><a href="user/toRegister">免费注册</a> <a href="#">使用教程</a> <a
-					href="#">联系我们</a> <a href="#">企业资质</a> <a href="user/toRelease">我要发布</a></li>
+				<li><a class="menu_on" href="index.jsp">首页</a>
+				</li>
+				<li><a href="page/toRegister">免费注册</a> <a href="#">使用教程</a> <a
+					href="#">联系我们</a> <a href="#">企业资质</a> <a href="page/toRelease">我要发布</a>
+				</li>
 				<li id="part_img"><a href="information/list"> <img
-						src="resource/image/search.png"> </a></li>
+						src="resource/image/search.png"> </a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -93,8 +100,7 @@
 		<form class="left login_right" action="user/loginUser">
 			<ul>
 				<li>
-					<h1>账户登陆</h1>
-				</li>
+					<h1>账户登陆</h1></li>
 				<li>用户名</li>
 				<li><input type="text" name="email" placeholder="请输入Email">
 				</li>
@@ -104,23 +110,25 @@
 				<li>验证码</li>
 				<li><input type="text" placeholder="请输入验证码"
 					style="width: 160px;"> <img src="#"
-					style="width: 70px;height: 23px;vertical-align: middle;">
-				</li>
+					style="width: 70px;height: 23px;vertical-align: middle;"></li>
 				<li><input id="login_btn" type="submit" value="">
 					<div class="right" style="line-height: 32px;">
 						还没有账号？ <a href="page/toRegister" style="color: #36c;">立即注册</a>
-					</div>
-				</li>
+					</div></li>
 			</ul>
 		</form>
 	</div>
 	<div class="foot_track">
 		<div class="center">
 			<ul>
-				<li><img src="resource/image/fuwu_1.png"></li>
-				<li><img src="resource/image/fuwu_2.png"></li>
-				<li><img src="resource/image/fuwu_3.png"></li>
-				<li><img src="resource/image/fuwu_4.png"></li>
+				<li><img src="resource/image/fuwu_1.png">
+				</li>
+				<li><img src="resource/image/fuwu_2.png">
+				</li>
+				<li><img src="resource/image/fuwu_3.png">
+				</li>
+				<li><img src="resource/image/fuwu_4.png">
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -143,5 +151,52 @@
 				style="color: #ff0000;" class="hs">自动发卡平台</a>
 		</div>
 	</div>
+	<!-- 代码 开始 -->
+	<div class="scrollsidebar" id="scrollsidebar">
+		<div class="side_content">
+			<div class="side_list">
+				<div class="side_title">
+					<a title="隐藏" class="close_btn"><span>关闭</span> </a>
+				</div>
+				<div class="side_center">
+					<div class="custom_service">
+						<p>
+							<a title="点击这里给我发消息"
+								href="http://wpa.qq.com/msgrd?v=3&amp;uin=729670773&amp;site=www.cactussoft.cn&amp;menu=yes"
+								target="_blank"><img
+								src="http://wpa.qq.com/pa?p=2:729670773:41"> </a>
+						</p>
+					</div>
+					<div class="other">
+						<p>
+							<img src="resources/plugins/qq/images/qrcode.jpg" />
+						</p>
+						<p>客户服务热线</p>
+						<p>130-0000-0000</p>
+					</div>
+					<div class="msgserver">
+						<p>
+							<a href="http://www.sucaijiayuan.com">给我们留言</a>
+						</p>
+					</div>
+				</div>
+				<div class="side_bottom"></div>
+			</div>
+		</div>
+		<div class="show_btn">
+			<span>在线客服</span>
+		</div>
+	</div>
+	<!-- 代码 结束 -->
+	<script type="text/javascript">
+		$(function() {
+			$("#scrollsidebar").fix({
+				float : 'right', //default.left or right
+				//minStatue : true,
+				skin : 'blue', //green or blue
+				durationTime : 600
+			});
+		});
+	</script>
 </body>
 </html>

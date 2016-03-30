@@ -23,8 +23,11 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/information.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-
+<link href="resource/plugins/qq/css/sucaijiayuan.css" type="text/css"
+	rel="stylesheet">
 <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
+<script src="resource/plugins/qq/js/sucaijiayuan.js"
+	type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$.ajax({
@@ -179,5 +182,52 @@ $(document).ready(function() {
 				style="color: #ff0000;" class="hs">自动发卡平台</a>
 		</div>
 	</div>
+	<!-- 代码 开始 -->
+	<div class="scrollsidebar" id="scrollsidebar">
+		<div class="side_content">
+			<div class="side_list">
+				<div class="side_title">
+					<a title="隐藏" class="close_btn"><span>关闭</span> </a>
+				</div>
+				<div class="side_center">
+					<div class="custom_service">
+						<p>
+							<a title="点击这里给我发消息"
+								href="http://wpa.qq.com/msgrd?v=3&amp;uin=729670773&amp;site=www.cactussoft.cn&amp;menu=yes"
+								target="_blank"><img
+								src="http://wpa.qq.com/pa?p=2:729670773:41"> </a>
+						</p>
+					</div>
+					<div class="other">
+						<p>
+							<img src="resources/plugins/qq/images/qrcode.jpg" />
+						</p>
+						<p>客户服务热线</p>
+						<p>130-0000-0000</p>
+					</div>
+					<div class="msgserver">
+						<p>
+							<a href="http://www.sucaijiayuan.com">给我们留言</a>
+						</p>
+					</div>
+				</div>
+				<div class="side_bottom"></div>
+			</div>
+		</div>
+		<div class="show_btn">
+			<span>在线客服</span>
+		</div>
+	</div>
+	<!-- 代码 结束 -->
+	<script type="text/javascript">
+		$(function() {
+			$("#scrollsidebar").fix({
+				float : 'right', //default.left or right
+				//minStatue : true,
+				skin : 'blue', //green or blue
+				durationTime : 600
+			});
+		});
+	</script>
 </body>
 </html>
