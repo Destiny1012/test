@@ -161,15 +161,26 @@ public class InformationAction extends ActionSupport {
 		}
 		return "getAll";
 	}
+	
+	public String aList() throws Exception {
+		Map session = ActionContext.getContext().getSession();
+		if (session.get("email") != null) {
+			totalSize = informationService.getCount();
+			list = informationService.getAll();
+			
+			result = "success";
+		} else {
+			result = "fail";
+		}
+		return "aList";
+	}
 
 	public String listDetail() throws Exception {
 		Map session = ActionContext.getContext().getSession();
 		if (session.get("email") != null) {
 			info = informationService.get(id);
-			System.out.println(id);
 			result = "success";
 		} else {
-			System.out.println(id+"s");
 			result = "fail";
 		}
 		return "listDetail";
@@ -205,7 +216,6 @@ public class InformationAction extends ActionSupport {
 			pageBar += "</ul>";
 			pageBar += "</nav>";
 			list = informationService.getList(currentPage, pageSize);
-			System.out.println(totalSize);
 			result = "success";
 		} else {
 			result = "fail";
@@ -439,6 +449,44 @@ public class InformationAction extends ActionSupport {
 		pageBar += "</nav>";
 		list = informationService.getList(currentPage, pageSize);
 		return "infoAdmin";
+	}
+	
+	public String queryList() throws Exception {
+		Map session = ActionContext.getContext().getSession();
+		if(session.get("email") != null){
+			if (currentPage == 0) {
+				currentPage = 1;
+			}
+			totalSize = informationService.queryRep();
+			int mod = totalSize % pageSize;
+			if (mod == 0) {
+				totalPage = totalSize / pageSize;
+			} else {
+				totalPage = totalSize / pageSize + 1;
+			}
+			pageBar = "<nav>";
+			pageBar += "<ul class='list_m'>";
+			pageBar += "<li><a href='information/infoAdmin?currentPage=1'>首页</a></li>";
+			for (int i = 1; i <= totalPage; i++) {
+				if (i == currentPage) {
+					pageBar += "<li class='active'><a href='information/infoAdmin?currentPage="
+							+ i + "'>" + i + "</a></li>";
+				} else {
+					pageBar += "<li><a href='information/infoAdmin?currentPage="
+							+ i + "'>" + i + "</a></li>";
+				}
+			}
+			pageBar += "<li><a href='information/infoAdmin?currentPage="
+					+ totalPage + "'>尾页</a></li>";
+			pageBar += "</ul>";
+			pageBar += "</nav>";
+			list = informationService.queryList(currentPage, pageSize);
+			System.out.println(list.size());
+			result = "success";
+		}else{
+			result = "fail";
+		}
+		return "queryList";
 	}
 
 	public long getId() {

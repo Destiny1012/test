@@ -121,7 +121,6 @@ $(document).ready(function() {
 				<ul class="list_n">
 					<s:iterator value="list" var="information" status="st">
 						<li><a href="information/listDetail?id=${information.id}">
-								<s:hidden value="#information.id"></s:hidden>
 								<h1>
 									<s:property value="#information.bt" />
 								</h1> <span><s:property value="#information.fbsj" /> </span>

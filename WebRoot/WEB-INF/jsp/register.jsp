@@ -98,8 +98,10 @@
     //验证手机
     function checktel(){
     	phone = register.tel.valu;
-    	tels = /^1[3|4|5|7|8]\d{9}$/；
-    	if (!tels.test(phone)){
+    	tels = /^1[3|4|5|7|8][0-9]{9}$/；
+    	alert("456");
+    	if (!(tels.test(phone))){
+    		alert("123");
     		divtel.innerHTML='<font class="tips_true">输入正确</font>';
     	}else{
     		divtel.innerHTML='<font class="tips_false">请输入正确手机号</font>'
@@ -206,7 +208,7 @@
 							</li>
 							<li>
 								<label>手机：</label>
-								<input type="text" name="tel" placeholder="请输入手机" maxlength="8" required>
+								<input type="text" name="tel" placeholder="请输入手机" maxlength="11" onblur="checktel()" required>
 								<span class="tips" id="divtel">请输入中国大陆手机号</span>
 							</li>
 							<li>

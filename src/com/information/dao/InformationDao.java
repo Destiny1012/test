@@ -48,6 +48,15 @@ public class InformationDao implements IInformationDao {
 		int startRow = (currentPage - 1) * pageSize;
 		return getSession().createQuery("from Information").setFirstResult(startRow).setMaxResults(pageSize).list();
 	}
+	
+	public int queryReq() {
+		return Integer.parseInt(getSession().createSQLQuery("select count(*) from informations where gsd like '%吉林%'").uniqueResult().toString());
+	}
+	
+	public List<Information> queryList(int currentPage, int pageSize) {
+		int startRow = (currentPage - 1) * pageSize;
+		return getSession().createSQLQuery("select * from informations where gsd like '%吉林%'").addEntity(Information.class).setFirstResult(startRow).setMaxResults(pageSize).list();
+	}
 
 	protected Session getSession() {
 		return sessionFactory.getCurrentSession();

@@ -23,11 +23,9 @@
 
 <link rel="stylesheet" type="text/css" href="resource/css/information.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
-<link href="resource/plugins/qq/css/sucaijiayuan.css" type="text/css"
-	rel="stylesheet">
+<link href="resource/plugins/qq/css/sucaijiayuan.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
-<script src="resource/plugins/qq/js/sucaijiayuan.js"
-	type="text/javascript"></script>
+<script src="resource/plugins/qq/js/sucaijiayuan.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$.ajax({
@@ -43,6 +41,20 @@ $(document).ready(function() {
 		}
 	});
 });
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		type : "get",
+		url : "information/aList",
+		dataType : function(data) {
+			var totalCount = data.totalSize;
+			var pageSize = 10;
+			var pageTotal = Math.ceil(totalCount ／ pageSize);
+			var startPage = pageSize * (pn)
+		}
+	})
+})
 </script>
 
 </head>
