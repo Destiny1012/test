@@ -103,4 +103,13 @@ public class UserService implements IUserService {
 			return null;
 		}
 	}
+	
+	public List<User> checkEmail(String email) {
+		try{
+			return userDao.queryEmail(email);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

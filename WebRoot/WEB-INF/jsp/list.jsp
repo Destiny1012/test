@@ -52,7 +52,7 @@ $(document).ready(function() {
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="page/toLogin">请登录</a> - <a
+				卡 <span> <a href="page/toLogin">请登录</a> - <a
 					href="page/toRegister">免费注册</a> </span>
 			</div>
 			<div class="right top_obtain top_index">

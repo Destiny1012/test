@@ -27,13 +27,13 @@ $(document).ready(function(){
 		dataType : function(data) {
 			var totalCount = data.totalSize;
 			var pageSize = 10;
-			var pageTotal = Math.ceil(totalCount ／ pageSize);
+			var pageTotal = Math.ceil(totalCount / pageSize);
 			var currentPage = null;
 			var startRow = pageSize * (currentPage - 1);
-			var endRow = startRow + endRow - 1;
+			var endRow = startRow + pageSize - 1;
 		}
-	})
-})
+	});
+});
 </script>
 
 </head>

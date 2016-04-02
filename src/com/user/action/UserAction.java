@@ -142,6 +142,11 @@ public class UserAction extends ActionSupport {
 		list = userService.getList(currentPage, pageSize);
 		return "admin";
 	}
+	
+	public String checkEmail() throws Exception {
+		list = userService.checkEmail(email);
+		return "checkEmail";
+	}
 
 	public String getEmail() {
 		return email;

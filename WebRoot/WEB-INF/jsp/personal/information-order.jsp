@@ -50,8 +50,8 @@ $(document).ready(function(){
 		dataType : function(data) {
 			var totalCount = data.totalSize;
 			var pageSize = 10;
-			var pageTotal = Math.ceil(totalCount ／ pageSize);
-			var startPage = pageSize * (pn)
+			var pageTotal = Math.ceil(totalCount / pageSize);
+			var startPage = pageSize * (pn);
 		}
 	})
 })

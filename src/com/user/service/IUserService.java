@@ -24,4 +24,6 @@ public interface IUserService {
 	
 	public List<User> getList(int currentPage, int pageSize);
 	
+	public List<User> checkEmail(String email);
+	
 }

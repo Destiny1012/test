@@ -67,6 +67,10 @@ public class UserDao implements IUserDao {
 		int startRow = (currentPage - 1) * pageSize;
 		return getSession().createQuery("from User").setFirstResult(startRow).setMaxResults(pageSize).list();
 	}
+	
+	public List<User> queryEmail(String email) {
+		return getSession().createSQLQuery("select * from users where email").addEntity(User.class).setString("email", email).list();
+	}
 	 
 	protected Session getSession() {
 		return sessionFactory.getCurrentSession();

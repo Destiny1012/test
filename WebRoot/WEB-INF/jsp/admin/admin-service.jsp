@@ -47,8 +47,17 @@ $(document).ready(function() {
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="admin-login.jsp">请登录</a> - <a
-					href="user/toRegister">免费注册</a> </span>
+				<s:if test="#session.name != null">
+					您好,
+					<a href="page/toInforPer">${name}</a>
+					<a href="#" style="color: #333;">退出</a>
+				</s:if>
+				<s:else>
+					欢迎来到28
+					<a href="page/toLogin">请登录</a>
+					-
+					<a href="page/toRegister">免费注册</a>
+				</s:else>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">

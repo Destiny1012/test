@@ -44,14 +44,6 @@
 	};
 </script>
 <script type="text/javascript">
-   /* function checkna(){
-        na=register.name.value;
-        if( na.length < 1 || na.length > 12){
-            divname.innerHTML='<font class="tips_false">长度是1~12个字符</font>';
-        }else{
-            divname.innerHTML='<font class="tips_true">输入正确</font>';
-        };
- 	} */
   //验证密码 
     function checkpsd1(){
         psd1=register.password.value;
@@ -86,26 +78,37 @@
             }
     }
     //验证邮箱
-    function checkmail(){
-    	apos = register.email.value.indexOf("@");
-        dotpos = register.email.value.lastIndexOf(".");
-        if (apos < 1 || dotpos-apos < 2){
-        	divmail.innerHTML='<font class="tips_false">请输入正确邮箱</font>';
+    function checkemail(){
+    	a = register.email.value.indexOf("@");
+        b = register.email.value.lastIndexOf(".");
+        if (a < 1 || b - a < 2){
+        	divemail.innerHTML='<font class="tips_false">请输入正确邮箱</font>';
         }else{
-            divmail.innerHTML='<font class="tips_true">输入正确</font>';
+            $.ajax({
+            	type : "get",
+            	url : "user/checkEmail",
+            	dataType : "json",
+            	success : function(data) {
+            		if((name == email).size > 0){
+            			divemail.innerHTML='<font class="tips_false">此email已被注册</font>';
+            		}else{
+            			divemail.innerHTML='<font class="tips_true">输入正确</font>';
+            		}
+            	}
+            });
         }
     }
     //验证手机
     function checktel(){
     	phone = register.tel.valu;
-    	tels = /^1[3|4|5|7|8][0-9]{9}$/；
+    	tels = /^1[3|4|5|7|8][0-9]{9}$/;
     	alert("456");
     	if (!(tels.test(phone))){
     		alert("123");
     		divtel.innerHTML='<font class="tips_true">输入正确</font>';
     	}else{
-    		divtel.innerHTML='<font class="tips_false">请输入正确手机号</font>'
-    	}
+    		divtel.innerHTML='<font class="tips_false">请输入正确手机号</font>';
+    	};
     }
 </script>
 
@@ -193,8 +196,8 @@
 						<ul>
 							<li>
 								<label>登陆Email：</label>
-								<input type="text" name="email" placeholder="请输入Email" onblur="checkmail()" required>
-								<span class="tips" id="divmail"></span>
+								<input type="text" name="email" placeholder="请输入Email" onblur="checkemail()" required>
+								<span class="tips" id="divemail">请输入邮箱</span>
 							</li>
 							<li>
 								<label>密码：</label>

@@ -23,10 +23,10 @@
 <link rel="stylesheet" type="text/css" href="resource/css/login.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	$.ajax({
+/* 	$.ajax({
 		type : "get",
 		url : "page/checkLogin",
 		dataType : "json",
@@ -36,6 +36,22 @@ $(document).ready(function() {
 			} else {
 				window.location.href = "page/toAdminLogin";
 			}
+		}
+	}); */
+});
+</script>
+<script type="text/javascript">
+$("#login_btn").click(function(){
+	var name = login_right.name.value;
+	var password = login_right.name.value;
+	alert("123");
+	$.ajax({
+		type : "post",
+		url : "admin/loginAdmin",
+		data : {"name":name, "password":password},
+		dataType : "json",
+		success : function(){
+			window.location.href = "admin/loginAdmin";
 		}
 	});
 });
@@ -125,8 +141,10 @@ $(document).ready(function() {
 					style="width: 70px;height: 23px;vertical-align: middle;">
 				</li>
 				<li><input id="login_btn" type="submit" value="">
+					<!-- <button id="login_btn" type="submit" onclick="login()">登录</button> -->
 					<div class="right" style="line-height: 32px;">
-						还没有账号？ <a href="register.html" style="color: #36c;">立即注册</a>
+						还没有账号？ 
+						<a href="register.html" style="color: #36c;">立即注册</a>
 					</div>
 				</li>
 			</ul>

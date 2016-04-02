@@ -25,5 +25,7 @@ public interface IUserDao {
 	public int queryCount();
 	
 	public List<User> queryUser(int currentPage, int pageSize);
+	
+	public List<User> queryEmail(String email);
 
 }
