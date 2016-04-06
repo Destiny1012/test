@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -20,7 +20,8 @@
 <meta http-equiv="description" content="This is my page">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="resource/css/information.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/css/information.css">
 <link rel="stylesheet" type="text/css" href="resource/css/main.css">
 <link href="resource/plugins/qq/css/sucaijiayuan.css" type="text/css"
 	rel="stylesheet">
@@ -28,20 +29,20 @@
 <script src="resource/plugins/qq/js/sucaijiayuan.js"
 	type="text/javascript"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	$.ajax({
-		type : "get",
-		url : "page/checkLogin",
-		dataType : "json",
-		success : function(data) {
-			if (data.result == "true") {
-				/* window.location.href = "page/toInfofPer"; */
-			} else {
-				window.location.href = "page/toLogin";
+	$(document).ready(function() {
+		$.ajax({
+			type : "get",
+			url : "page/checkLogin",
+			dataType : "json",
+			success : function(data) {
+				if (data.result == "true") {
+					/* window.location.href = "page/toInfofPer"; */
+				} else {
+					window.location.href = "page/toLogin";
+				}
 			}
-		}
+		});
 	});
-});
 </script>
 
 </head>
@@ -115,14 +116,7 @@ $(document).ready(function() {
 				<li><a href="page/toInforPas">密码修改</a></li>
 			</ul>
 			<ul>
-				<li><h2>我的订单</h2></li>
-				<li><a href="information/infoOrd">全部订单</a></li>
-				<li><a href="information/infoHan">已购买订单</a></li>
-				<li><a href="information/infoUnh">待处理订单</a></li>
-			</ul>
-			<ul>
-				<li>
-					<h2>我的发布</h2></li>
+				<li><h2>我的发布</h2></li>
 				<li><a href="information/infoAll">全部发布</a></li>
 				<li><a href="information/infoRel">已发布订单</a></li>
 				<li><a href="information/infoAud">待审核订单</a></li>
@@ -135,12 +129,33 @@ $(document).ready(function() {
 					<span>用户名</span>
 				</div>
 				<div class="information_list">
-					<ul>
-						<li><span>昵称：</span> <label>用户名</label></li>
-						<li><span>Email：</span> <label>123456@123.com</label></li>
-						<li><span>手机：</span> <label>12345678900</label></li>
-						<li><span>QQ：</span> <label>1234567890</label></li>
-					</ul>
+					<div class="information_small">
+						<ul>
+							<li><span>昵称：</span> <label>用户名</label></li>
+							<li><span>Email：</span> <label>123456@123.com</label></li>
+							<li><span>手机：</span> <label>12345678900</label></li>
+							<li><span>QQ：</span> <label>1234567890</label></li>
+						</ul>
+					</div>
+					<div class="information_small">
+						<ul>
+							<li></li>
+							<li><a href="#">修改信息</a></li>
+							<li><a href="#">修改密码</a></li>
+							<li></li>
+						</ul>
+					</div>
+					<div class="information_small">
+						<ul>
+							<li><span>信息提示：</span></li><br>
+							<li><span style="padding-left: 40px; width: 100%; text-align: left;">您有N条新的<a href="#">消息</a></span></li>
+						</ul>
+					</div>
+					<div class="information_small">
+						<ul>
+							<li><a href="#">我要发布</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>

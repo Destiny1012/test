@@ -409,6 +409,17 @@ public class InformationAction extends ActionSupport {
 		return "infoUnh";
 	}
 	
+	public String infoDet() throws Exception {
+		Map session = ActionContext.getContext().getSession();
+		if (session.get("email") != null) {
+			info = informationService.get(id);
+			result = "success";
+		} else {
+			result = "fail";
+		}
+		return "infoDet";
+	}
+	
 	public String detailAdmin() throws Exception {
 		Map session = ActionContext.getContext().getSession();
 		if (session.get("name") != null) {

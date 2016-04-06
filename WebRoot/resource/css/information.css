@@ -102,6 +102,14 @@
 .information td{
     padding-left: 20px;
 }
+.information_small{
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	width: 350px;
+	height: 160px;
+	border: 1px solid #dfdfdf;
+}
 .msg_con1 span{
     margin-left: 5px;
     color: #3d86ea;

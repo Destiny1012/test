@@ -20,6 +20,7 @@
 			<result name="infoUnh">/WEB-INF/jsp/personal/information-unhandled.jsp</result>
 			<result name="infoAdmin">/WEB-INF/jsp/admin/admin-order.jsp</result>
 			<result name="infoHandle">/WEB-INF/jsp/admin/admin-order.jsp</result>
+			<result name="infoDet">/WEB-INF/jsp/personal/information-detail.jsp</result>
 			<result name="detailAdmin">/WEB-INF/jsp/admin/admin-detail.jsp</result>
 			<result name="aList" type="json"></result>
 			<result name="queryList">/WEB-INF/jsp/list.jsp</result>

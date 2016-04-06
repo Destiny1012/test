@@ -6,13 +6,12 @@
 			+ path + "/";
 %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-
 <!DOCTYPE HTML>
 <html>
 <head>
 <base href="<%=basePath%>">
 
-<title>information-handled</title>
+<title>information-detail</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -36,7 +35,7 @@ $(document).ready(function() {
 		dataType : "json",
 		success : function(data) {
 			if (data.result == "true") {
-				/* window.location.href = "information/infoHan"; */
+				/* window.location.href = "information/infoRel"; */
 			} else {
 				window.location.href = "page/toLogin";
 			}
@@ -51,8 +50,17 @@ $(document).ready(function() {
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				您好, <a href="page/toInforPer">用户名</a> <a href="#"
-					style="color: #333;">退出</a>
+				<s:if test="#session.email != null">
+					您好,
+					<a href="page/toInforPer">${email}</a>
+					<a href="#" style="color: #333;">退出</a>
+				</s:if>
+				<s:else>
+					欢迎来到28
+					<a href="page/toLogin">请登录</a>
+					-
+					<a href="page/toRegister">免费注册</a>
+				</s:else>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -107,22 +115,16 @@ $(document).ready(function() {
 				<li><a href="page/toInforPas">密码修改</a></li>
 			</ul>
 			<ul>
-				<li><h2>我的订单</h2></li>
-				<li><a href="information/infoOrd">全部订单</a></li>
-				<li><a href="information/infoHan" class="check">已购买订单</a></li>
-				<li><a href="information/infoUnh">待处理订单</a></li>
-			</ul>
-			<ul>
 				<li>
 					<h2>我的发布</h2></li>
-				<li><a href="information/infoAll">全部发布</a></li>
+				<li><a href="information/infoAll" class="check">全部发布</a></li>
 				<li><a href="information/infoRel">已发布订单</a></li>
 				<li><a href="information/infoAud">待审核订单</a></li>
 			</ul>
 		</div>
 		<div class="information_right right">
 			<div class="information">
-				<div class="information_title">*修改信息</div>
+				<div class="information_title">*详细信息</div>
 				<div class="information_top">
 					<span>用户名</span>
 				</div>
@@ -130,21 +132,17 @@ $(document).ready(function() {
 					<table>
 						<thead>
 							<tr>
-								<td width="65%">标题</td>
-								<td width="35%">时间</td>
+								<td width="80%">${info.bt}</td>
+								<td width="20%">${info.fbsj}</td>
 							</tr>
 						</thead>
 						<tbody>
-							<s:iterator value="list" var="information" status="st">
-								<tr>
-									<td>
-										<s:property value="#information.bt"/>
-									</td>
-									<td>
-										<s:property value="#information.fbsj"/>
-									</td>
-								</tr>
-							</s:iterator>
+							<tr>
+								<td colspan="2">
+									${info.nr}<br>
+									<a href="information/infoAll" style="float: right;">返回</a>
+								</td>
+							</tr>
 						</tbody>
 					</table>
 					<div>${pageBar}</div>

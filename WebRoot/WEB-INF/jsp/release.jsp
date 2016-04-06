@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -25,20 +25,20 @@
 
 <script type="text/javascript" src="resource/js/jquery-2.2.1.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	$.ajax({
-		type : "get",
-		url : "page/checkLogin",
-		dataType : "json",
-		success : function(data) {
-			if (data.result == "true") {
-				/* window.location.href = "page/toRelease"; */
-			} else {
-				window.location.href = "page/toLogin";
+	$(document).ready(function() {
+		$.ajax({
+			type : "get",
+			url : "page/checkLogin",
+			dataType : "json",
+			success : function(data) {
+				if (data.result == "true") {
+					/* window.location.href = "page/toRelease"; */
+				} else {
+					window.location.href = "page/toLogin";
+				}
 			}
-		}
+		});
 	});
-});
 </script>
 
 </head>
@@ -47,8 +47,17 @@ $(document).ready(function() {
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				欢迎来到28卡 <span> <a href="login.jsp">请登录</a> - <a
-					href="page/toRegister">免费注册</a> </span>
+				<s:if test="#session.email != null">
+					您好,
+					<a href="page/toInforPer">${email}</a>
+					<a href="#" style="color: #333;">退出</a>
+				</s:if>
+				<s:else>
+					欢迎来到28
+					<a href="page/toLogin">请登录</a>
+					-
+					<a href="page/toRegister">免费注册</a>
+				</s:else>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -96,12 +105,15 @@ $(document).ready(function() {
 	<div class="navigation">
 		<div class="center part">
 			<ul>
-				<li><a class="menu_on" href="index.jsp">首页</a></li>
+				<li><a class="menu_on" href="index.jsp">首页</a>
+				</li>
 				<li><a href="page/toRegister">免费注册</a> <a href="#">使用教程</a> <a
 					href="#">联系我们</a> <a href="user/toList">企业资质</a> <a
-					href="page/toRelease">我要发布</a></li>
+					href="page/toRelease">我要发布</a>
+				</li>
 				<li id="part_img"><a href="#"> <img
-						src="resource/image/search.png"> </a></li>
+						src="resource/image/search.png"> </a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -136,10 +148,14 @@ $(document).ready(function() {
 	<div class="foot_track">
 		<div class="center">
 			<ul>
-				<li><img src="resource/image/fuwu_1.png"></li>
-				<li><img src="resource/image/fuwu_2.png"></li>
-				<li><img src="resource/image/fuwu_3.png"></li>
-				<li><img src="resource/image/fuwu_4.png"></li>
+				<li><img src="resource/image/fuwu_1.png">
+				</li>
+				<li><img src="resource/image/fuwu_2.png">
+				</li>
+				<li><img src="resource/image/fuwu_3.png">
+				</li>
+				<li><img src="resource/image/fuwu_4.png">
+				</li>
 			</ul>
 		</div>
 	</div>

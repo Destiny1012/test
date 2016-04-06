@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -50,8 +50,17 @@ $(document).ready(function() {
 	<div class="top">
 		<div class="top_box">
 			<div class="login">
-				您好, <a href="page/toInforPer">用户名</a> <a href="#"
-					style="color: #333;">退出</a>
+				<s:if test="#session.email != null">
+					您好,
+					<a href="page/toInforPer">${email}</a>
+					<a href="#" style="color: #333;">退出</a>
+				</s:if>
+				<s:else>
+					欢迎来到28
+					<a href="page/toLogin">请登录</a>
+					-
+					<a href="page/toRegister">免费注册</a>
+				</s:else>
 			</div>
 			<div class="right top_obtain top_index">
 				<div class="nav_text">
@@ -104,12 +113,6 @@ $(document).ready(function() {
 				<li><a href="page/toInforPer">基础信息</a></li>
 				<li><a href="page/toInforUp" class="check">修改信息</a></li>
 				<li><a href="page/toInforPas">密码修改</a></li>
-			</ul>
-			<ul>
-				<li><h2>我的订单</h2></li>
-				<li><a href="information/infoOrd">全部订单</a></li>
-				<li><a href="information/infoHan">已购买订单</a></li>
-				<li><a href="information/infoUnh">待处理订单</a></li>
 			</ul>
 			<ul>
 				<li>
